@@ -75,6 +75,38 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/home/human/AI-Gambler/.(Beta)/Bovada/BotKit/base_bot.py",
+			"settings":
+			{
+				"buffer_size": 2793,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/home/human/AI-Gambler/.(Beta)/Bovada/BotKit/config.ini",
+			"settings":
+			{
+				"buffer_size": 477,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/home/human/AI-Gambler/.(Beta)/Bovada/betting_bot.py",
+			"settings":
+			{
+				"buffer_size": 1652,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/human/AI-Gambler/.(Beta)/Bovada/BotKit/__init__.py",
+			"settings":
+			{
+				"buffer_size": 25,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -108,10 +140,22 @@
 	},
 	"expanded_folders":
 	[
-		"/home/human/AI-Gambler"
+		"/home/human/AI-Gambler",
+		"/home/human/AI-Gambler/.(Beta)",
+		"/home/human/AI-Gambler/.(Beta)/Bovada",
+		"/home/human/AI-Gambler/.(Beta)/Bovada/BotKit",
+		"/home/human/AI-Gambler/.(Beta)/TESTS",
+		"/home/human/AI-Gambler/.(Beta)/TESTS/RNN-Pokerbot"
 	],
 	"file_history":
 	[
+		"/home/human/file",
+		"/home/human/AI-Gambler/.(Beta)/TESTS/RNN-Pokerbot/pokerbot.py",
+		"/home/human/AI-Gambler/.(Beta)/TESTS/RNN-Pokerbot/pokerbot_FFdumb.py",
+		"/home/human/AI-Gambler/.(Beta)/TESTS/RNN-Pokerbot/pokerbot_qlearn.py",
+		"/home/human/AI-Gambler/.(Beta)/TESTS/RNN-Pokerbot/pokertable.py",
+		"/home/human/AI-Gambler/.(Beta)/TESTS/RNN-Pokerbot/table.py",
+		"/home/human/AI-Gambler/.(Beta)/TESTS/RNN-Pokerbot/tableQ.py",
 		"/home/human/AI-Gambler/README.md",
 		"/home/human/AI-Gambler/.gitignore",
 		"/home/human/AI-Gambler/Alpha/README.md",
@@ -132,7 +176,6 @@
 		"/home/human/LIFE/Life-Companion/LC/Run/Day_Controller.py",
 		"/home/human/LIFE/Life-Companion/LC/Command/spotify.py",
 		"/home/human/LIFE/Life-Companion/LC/Scripts/activate_env.sh",
-		"/home/human/file",
 		"/home/human/LIFE/Life-Companion/LC/Scripts/env_test.py",
 		"/home/human/LIFE/Life-Companion/README.md",
 		"/home/human/LIFE/Life-Companion/LC/README.md",
@@ -233,13 +276,7 @@
 		"/home/human/Machine-Learning/Projects/NCAA/Brain/brain.py",
 		"/home/human/Machine-Learning/Projects/NCAA/Brain/dqn.py",
 		"/home/human/Machine-Learning/Projects/README.md",
-		"/home/human/Machine-Learning/Base/RL/test.py",
-		"/home/human/Machine-Learning/Base/RL/train.py",
-		"/home/human/Machine-Learning/Base/RL/Environment/__init__.py",
-		"/home/human/Machine-Learning/Base/RL/Brain/__init__.py",
-		"/home/human/Machine-Learning/README.md",
-		"/home/human/Machine-Learning/BASE/README.md",
-		"/home/human/Machine-Learning/TESTS/environment.py"
+		"/home/human/Machine-Learning/Base/RL/test.py"
 	],
 	"find":
 	{
@@ -277,6 +314,127 @@
 			"sheets":
 			[
 			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/human/AI-Gambler/.(Beta)/Bovada/BotKit/base_bot.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2793,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/human/AI-Gambler/.(Beta)/Bovada/BotKit/config.ini",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 477,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/human/AI-Gambler/.(Beta)/Bovada/betting_bot.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1652,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/human/AI-Gambler/.(Beta)/Bovada/BotKit/__init__.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 25,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
 		}
 	],
 	"incremental_find":
@@ -296,11 +454,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.39069991171,
 			1.0
 		],
 		"rows":
