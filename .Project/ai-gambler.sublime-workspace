@@ -112,6 +112,10 @@
 	],
 	"file_history":
 	[
+		"/home/human/AI-Gambler/README.md",
+		"/home/human/AI-Gambler/.gitignore",
+		"/home/human/AI-Gambler/Alpha/README.md",
+		"/home/human/AI-Gambler/Beta/README.md",
 		"/home/human/LIFE/Life-Companion/LC/Command/Terminal/terminal_classes.py",
 		"/home/human/LIFE/Life-Companion/LC/Command/__init__.py",
 		"/home/human/LIFE/Life-Companion/.gitignore",
@@ -235,11 +239,7 @@
 		"/home/human/Machine-Learning/Base/RL/Brain/__init__.py",
 		"/home/human/Machine-Learning/README.md",
 		"/home/human/Machine-Learning/BASE/README.md",
-		"/home/human/Machine-Learning/TESTS/environment.py",
-		"/home/human/Machine-Learning/TESTS/train.py",
-		"/home/human/Machine-Learning/TESTS/test.py",
-		"/home/human/Simulator/environment.yml",
-		"/home/human/Simulator/SIMULATOR/Car/Controls/car_control.py"
+		"/home/human/Machine-Learning/TESTS/environment.py"
 	],
 	"find":
 	{
