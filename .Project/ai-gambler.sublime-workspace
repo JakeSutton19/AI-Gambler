@@ -1,0 +1,368 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Op",
+				"Open_Terminal"
+			],
+			[
+				"mess",
+				"message1"
+			],
+			[
+				"Read",
+				"Read_ExcelSheet"
+			],
+			[
+				"class",
+				"class_name"
+			],
+			[
+				"Cla",
+				"Class_to_Json"
+			],
+			[
+				"json",
+				"json_df"
+			],
+			[
+				"Bod",
+				"Body_Exercise"
+			],
+			[
+				"Creat",
+				"Create_ExcelSheet"
+			],
+			[
+				"re",
+				"records_path"
+			],
+			[
+				"for",
+				"format"
+			],
+			[
+				"Exc",
+				"ExcelWriter"
+			],
+			[
+				"ter",
+				"terminal_start"
+			],
+			[
+				"yea",
+				"years"
+			],
+			[
+				"fa",
+				"fail_files"
+			],
+			[
+				"cu",
+				"current_season"
+			],
+			[
+				"Fin",
+				"Find_Data"
+			],
+			[
+				"html",
+				"html_doc"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/human/AI-Gambler"
+	],
+	"file_history":
+	[
+		"/home/human/LIFE/Life-Companion/LC/Command/Terminal/terminal_classes.py",
+		"/home/human/LIFE/Life-Companion/LC/Command/__init__.py",
+		"/home/human/LIFE/Life-Companion/.gitignore",
+		"/home/human/LIFE/Life-Companion/LC/Scripts/run_test.sh",
+		"/home/human/LIFE/Life-Companion/run.sh",
+		"/home/human/LIFE/Life-Companion/LC/Scripts/create_env.sh",
+		"/home/human/LIFE/Life-Companion/LC/LC.py",
+		"/home/human/LIFE/Life-Companion/LC/Scripts/test.sh",
+		"/home/human/LIFE/Life-Companion/LC/test.py",
+		"/home/human/LIFE/Life-Companion/LC/Scripts/start_terminator.sh",
+		"/home/human/LIFE/Life-Companion/LC/Run/__init__.py",
+		"/home/human/LIFE/Life-Companion/LC/Run/UI_Controller.py",
+		"/home/human/LIFE/Life-Companion/LC/Run/DB_Controller.py",
+		"/home/human/LIFE/Life-Companion/LC/Run/Day_Controller.py",
+		"/home/human/LIFE/Life-Companion/LC/Command/spotify.py",
+		"/home/human/LIFE/Life-Companion/LC/Scripts/activate_env.sh",
+		"/home/human/file",
+		"/home/human/LIFE/Life-Companion/LC/Scripts/env_test.py",
+		"/home/human/LIFE/Life-Companion/README.md",
+		"/home/human/LIFE/Life-Companion/LC/README.md",
+		"/home/human/LIFE/Life-Companion/LC/activate_env.sh",
+		"/home/human/LIFE/Life-Companion/LC/Startup/terminal.py",
+		"/home/human/LIFE/Life-Companion/LC/Startup/test.py",
+		"/home/human/LIFE/Life-Companion/Start/terminal.py",
+		"/home/human/LIFE/Life-Companion/Start/test.py",
+		"/home/human/LIFE/Life-Companion/Startup/test.py",
+		"/home/human/LIFE/Life-Companion/root/test.py",
+		"/home/human/LIFE/Life-Companion/root/Terminal/__init__.py",
+		"/home/human/LIFE/Life-Companion/root/UI_Controller.py",
+		"/home/human/LIFE/Life-Companion/root/Terminal/terminal_base.py",
+		"/home/human/LIFE/Life-Companion/root/Terminal/terminal_menus.py",
+		"/home/human/LIFE/Life-Companion/root/Terminal/terminal_classes.py",
+		"/home/human/LIFE/Life-Companion/root/Terminal/terminal.py",
+		"/home/human/LIFE/Life-Companion/root/Utilities/Utilities.py",
+		"/home/human/LIFE/Life-Companion/root/DB_Controller.py",
+		"/home/human/LIFE/Life-Companion/root/Day_Controller.py",
+		"/home/human/LIFE/Life-Companion/root/Day/Day.py",
+		"/home/human/LIFE/Life-Companion/root/Database/db.py",
+		"/home/human/LIFE/Life-Companion/root/Day/Focus.py",
+		"/home/human/LIFE/Life-Companion/root/Database/DB_Controller.py",
+		"/home/human/LIFE/Life-Companion/root/db.py",
+		"/home/human/LIFE/Life-Companion/root/Day/Routines.py",
+		"/home/human/LIFE/Life-Companion/root/Day/Workout.py",
+		"/home/human/LIFE/Life-Companion/root/Day/Activities.py",
+		"/home/human/LIFE/Life-Companion/root/Utilities/misc.py",
+		"/home/human/LIFE/Life-Companion/root/Utilities.py",
+		"/home/human/LIFE/Life-Companion/root/misc.py",
+		"/home/human/LIFE/Life-Companion/root/Controller.py",
+		"/home/human/LIFE/Life-Companion/root/overview_doc.py",
+		"/home/human/LIFE/Life-Companion/root/questions.py",
+		"/home/human/LIFE/Life-Companion/root/terminal.py",
+		"/home/human/LIFE/Life-Companion/root/Day.py",
+		"/home/human/LIFE/Life-Companion/root/write.py",
+		"/home/human/LIFE/Life-Companion/root/read.py",
+		"/usr/bin/xscreensaver",
+		"/usr/bin/gnome-screensaver-command",
+		"/home/human/Machine-Learning/SRC/run.py",
+		"/home/human/Machine-Learning/SRC/dqn_keras.py",
+		"/home/human/Machine-Learning/z-Extras/ALPHA/Snake/Brain/brain.py",
+		"/home/human/Machine-Learning/Test/run.py",
+		"/home/human/Machine-Learning/Test/dqn_keras.py",
+		"/home/human/Machine-Learning/Test/utils.py",
+		"/home/human/Machine-Learning/DDQ/agent.py",
+		"/home/human/Machine-Learning/DDQ/network.py",
+		"/home/human/Machine-Learning/DDQ/replay.py",
+		"/home/human/Machine-Learning/DDQ/utils.py",
+		"/home/human/Machine-Learning/DDQ/main.py",
+		"/home/human/Machine-Learning/Test/main_keras_dqn_pong.py",
+		"/home/human/Machine-Learning/Test/main_keras_ddqn_lunar_lander.py",
+		"/home/human/Machine-Learning/.gitignore",
+		"/home/human/Machine-Learning/Main/environment.py",
+		"/home/human/Machine-Learning/Main/test.py",
+		"/home/human/Machine-Learning/Tests/ALPHA/DDQ/utils.py",
+		"/home/human/Machine-Learning/Tests/ALPHA/DDQ/main.py",
+		"/home/human/Machine-Learning/Main/dqn.py",
+		"/home/human/Machine-Learning/Resources/gym-chrome-dino/README.md",
+		"/home/human/Machine-Learning/Main/tf-rex/main.py",
+		"/home/human/Machine-Learning/Main/requirements.txt",
+		"/home/human/Machine-Learning/Main/brain.py",
+		"/home/human/Machine-Learning/Main/snake_train.py",
+		"/home/human/Machine-Learning/Main/dqn_keras.py",
+		"/home/human/Machine-Learning/Main/run.py",
+		"/home/human/Machine-Learning/Main/utils.py",
+		"/home/human/Machine-Learning/Main/ENV.py",
+		"/home/human/Machine-Learning/DDQ/replay",
+		"/home/human/Machine-Learning/DDQ/model.py",
+		"/home/human/Machine-Learning/DDQ/train.py",
+		"/home/human/Machine-Learning/DDQ/tools.py",
+		"/home/human/Machine-Learning/.env/gym-doom/README.md",
+		"/home/human/zdoom/docs/commands.txt",
+		"/home/human/Machine-Learning/ROOT/DCQ/skip_wrapper.py",
+		"/home/human/Machine-Learning/ROOT/DCQ/image_preprocessing.py",
+		"/home/human/Machine-Learning/ROOT/DCQ/ai.py",
+		"/home/human/Machine-Learning/ROOT/DCQ/experience_replay.py",
+		"/home/human/Machine-Learning/ROOT/Brain/brain.py",
+		"/home/human/Machine-Learning/Q-Trader/agent/agent.py",
+		"/home/human/Machine-Learning/Dino/train.py",
+		"/home/human/Machine-Learning/.env/ViZDoom/scenarios/health_gathering.cfg",
+		"/home/human/Machine-Learning/DFP/README.md",
+		"/home/human/Machine-Learning/DINO/train.py",
+		"/home/human/Machine-Learning/RL/train.py",
+		"/home/human/Machine-Learning/RL/Environment/Snake/snake.py",
+		"/home/human/Machine-Learning/PACMAN/root.py",
+		"/home/human/trash",
+		"/home/human/NCAA/README.md",
+		"/home/human/NCAA/NCAA/README.md",
+		"/home/human/Machine-Learning/Base/train.py",
+		"/home/human/Machine-Learning/Base/Environment/environment.py",
+		"/home/human/Machine-Learning/Exp/DQN-Navigation/navigation.py",
+		"/home/human/Machine-Learning/Base/test.py",
+		"/home/human/Machine-Learning/NCAA/Data/data_bot.py",
+		"/home/human/Machine-Learning/Tools/WebScraper.py",
+		"/home/human/Machine-Learning/Projects/NCAA/Environment/environment.py",
+		"/home/human/Machine-Learning/Projects/NCAA/README.md",
+		"/home/human/Machine-Learning/Projects/NCAA/Brain/brain.py",
+		"/home/human/Machine-Learning/Projects/NCAA/Brain/dqn.py",
+		"/home/human/Machine-Learning/Projects/README.md",
+		"/home/human/Machine-Learning/Base/RL/test.py",
+		"/home/human/Machine-Learning/Base/RL/train.py",
+		"/home/human/Machine-Learning/Base/RL/Environment/__init__.py",
+		"/home/human/Machine-Learning/Base/RL/Brain/__init__.py",
+		"/home/human/Machine-Learning/README.md",
+		"/home/human/Machine-Learning/BASE/README.md",
+		"/home/human/Machine-Learning/TESTS/environment.py",
+		"/home/human/Machine-Learning/TESTS/train.py",
+		"/home/human/Machine-Learning/TESTS/test.py",
+		"/home/human/Simulator/environment.yml",
+		"/home/human/Simulator/SIMULATOR/Car/Controls/car_control.py"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "ai-gambler.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Kevin/.ProjectFiles/kevin.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 231.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
