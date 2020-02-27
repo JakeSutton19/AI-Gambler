@@ -2,8 +2,8 @@
 Developmental Bots for AI Gambler
 
 ## A.I. Poker Bot
-~In developement~
+--> In developement
 
 ## Bovada Sports Betting Bot
-~In developement~
+--> In developement
 
