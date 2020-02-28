@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"co",
+				"cookies"
+			],
+			[
+				"coo",
+				"cookie_check"
+			],
+			[
+				"Cook",
+				"Cookie_Check"
+			],
+			[
 				"Op",
 				"Open_Terminal"
 			],
@@ -109,13 +121,30 @@
 	},
 	"expanded_folders":
 	[
-		"/home/human/AI-Gambler"
+		"/home/human/AI-Gambler",
+		"/home/human/AI-Gambler/Beta",
+		"/home/human/AI-Gambler/Beta/Build",
+		"/home/human/AI-Gambler/Config"
 	],
 	"file_history":
 	[
+		"/home/human/AI-Gambler/Beta/Build/bot.py",
+		"/home/human/AI-Gambler/Beta/test.py",
+		"/home/human/AI-Gambler/Beta/Build/Driver/driver.py",
+		"/home/human/AI-Gambler/Config/config.ini",
+		"/home/human/AI-Gambler/Config/Cookies/p_cookies.pkl",
+		"/home/human/AI-Gambler/Config/Cookies/cookies.pkl",
+		"/home/human/AI-Gambler/(Beta)/test.py",
+		"/home/human/AI-Gambler/(Beta)/Build/Driver/driver.py",
+		"/home/human/AI-Gambler/(Beta)/Build/bot.py",
+		"/home/human/AI-Gambler/(Beta)/Build/Driver/Cookies/cookies.pkl",
+		"/home/human/AI-Gambler/(Beta)/Build/Environment/environment.py",
+		"/home/human/AI-Gambler/(Beta)/Build/Bot/__init__.py",
+		"/home/human/AI-Gambler/(Beta)/Build/Bot/driver.py",
+		"/home/human/AI-Gambler/(Beta)/Bot/bot.py",
+		"/home/human/AI-Gambler/(Beta)/Bot/bot_driver.py",
 		"/home/human/AI-Gambler/(Beta)/bot_driver.py",
 		"/home/human/AI-Gambler/(Beta)/base_functions.py",
-		"/home/human/AI-Gambler/(Beta)/test.py",
 		"/home/human/AI-Gambler/(Beta)/bot.py",
 		"/home/human/AI-Gambler/Setup/config.ini",
 		"/home/human/file",
@@ -226,21 +255,7 @@
 		"/home/human/Machine-Learning/Main/dqn_keras.py",
 		"/home/human/Machine-Learning/Main/run.py",
 		"/home/human/Machine-Learning/Main/utils.py",
-		"/home/human/Machine-Learning/Main/ENV.py",
-		"/home/human/Machine-Learning/DDQ/replay",
-		"/home/human/Machine-Learning/DDQ/model.py",
-		"/home/human/Machine-Learning/DDQ/train.py",
-		"/home/human/Machine-Learning/DDQ/tools.py",
-		"/home/human/Machine-Learning/.env/gym-doom/README.md",
-		"/home/human/zdoom/docs/commands.txt",
-		"/home/human/Machine-Learning/ROOT/DCQ/skip_wrapper.py",
-		"/home/human/Machine-Learning/ROOT/DCQ/image_preprocessing.py",
-		"/home/human/Machine-Learning/ROOT/DCQ/ai.py",
-		"/home/human/Machine-Learning/ROOT/DCQ/experience_replay.py",
-		"/home/human/Machine-Learning/ROOT/Brain/brain.py",
-		"/home/human/Machine-Learning/Q-Trader/agent/agent.py",
-		"/home/human/Machine-Learning/Dino/train.py",
-		"/home/human/Machine-Learning/.env/ViZDoom/scenarios/health_gathering.cfg"
+		"/home/human/Machine-Learning/Main/ENV.py"
 	],
 	"find":
 	{
@@ -313,7 +328,7 @@
 		"cols":
 		[
 			0.0,
-			0.481606063529,
+			0.423448246416,
 			1.0
 		],
 		"rows":
@@ -365,7 +380,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},
@@ -373,7 +388,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 219.0,
+	"side_bar_width": 311.0,
 	"status_bar_visible": false,
 	"template_settings":
 	{

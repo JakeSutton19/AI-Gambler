@@ -115,6 +115,14 @@ class Driver:
 				self.Driver.add_cookie(cookie)
 
 
+	def click_button(self, box_ID):
+		try:
+			button = self.Driver_Wait.until(EC.presence_of_element_located((By.ID, "{}".format(box_ID))))
+			button.click()
+			time.sleep(1)
+		except (TimeoutException, NoSuchElementException):
+			raise ValueError("Clicking the {} button failed".format(box_ID))
+
 
 	#Go to site
 	def Go_to_Site(self, site):
@@ -136,5 +144,6 @@ class Driver:
 
 	# Teardown webdriver.
 	def Close_Connection(self):
-	    self.Driver.quit()
-	    quit()
+		print("Closed session.")
+		self.Driver.quit()
+		quit()

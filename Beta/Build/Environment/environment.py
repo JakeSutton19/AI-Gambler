@@ -1,7 +1,7 @@
 import numpy as np
 import pygame as pg
 
-class Snake():
+class Poker_Env():
 
     def __init__(self, waitTime): #waitime variable is used in order to be able to play the game
 

@@ -1,4 +1,4 @@
-#Snake: Deep Convolutional Q-Learning - Training file
+#Training file
 
 #Importing the libraries
 from Environment.__init__ import Snake
