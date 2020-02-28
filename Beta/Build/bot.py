@@ -1,5 +1,5 @@
 #Imports (General)
-
+from bs4 import BeautifulSoup
 
 #Imports (Files)
 from .Driver.__init__ import *
@@ -76,12 +76,16 @@ class Bot(Driver):
 		button.click()
 		time.sleep(1)
 
+	def GetSoup(self):
+		soup = BeautifulSoup(self.Driver.page_source, 'html.parser')
+		print(soup.prettify())
+
 
 	def Bovada_Poker_Setup(self):
 		try:
 			#Access Site
 			self.Go_to_Site(self.Config_Options['BOVADA_URLS']['S_A_G'])
-			time.sleep(1)
+			time.sleep(5)
 
 			# #Settings
 			# input("Press [Enter] to continue.")
@@ -89,10 +93,10 @@ class Bot(Driver):
 			# self.click_checkbox_button("checkbox-gameType-holdem")
 			# self.click_checkbox_button("checkbox-buyIn-five")
 
-			#Save Cookies and Return
-			input("Press [Enter] to continue.")
-			self.save_cookies(self.Config_Options['COOKIES']['POKER_COOKIE_PATH'])
-			time.sleep(2)
+			# #Save Cookies and Return
+			# input("Press [Enter] to continue.")
+			# self.save_cookies(self.Config_Options['COOKIES']['POKER_COOKIE_PATH'])
+			# time.sleep(2)
 		except (TimeoutException, NoSuchElementException):
 			self.Close_Connection()
 		
@@ -100,6 +104,8 @@ class Bot(Driver):
 	def Run(self):
 		self.Bovada_Login()
 		self.Bovada_Poker_Setup()
+		self.GetSoup()
+		time.sleep(30)
 		self.Close_Connection()
 
 

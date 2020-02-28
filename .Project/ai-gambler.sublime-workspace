@@ -122,15 +122,17 @@
 	"expanded_folders":
 	[
 		"/home/human/AI-Gambler",
-		"/home/human/AI-Gambler/Beta",
-		"/home/human/AI-Gambler/Beta/Build",
-		"/home/human/AI-Gambler/Config"
+		"/home/human/AI-Gambler/Beta"
 	],
 	"file_history":
 	[
+		"/home/human/AI-Gambler/Beta/Build/Environment/train.py",
+		"/home/human/AI-Gambler/Beta/Build/Environment/test.py",
+		"/home/human/AI-Gambler/Beta/Build/Environment/environment.py",
 		"/home/human/AI-Gambler/Beta/Build/bot.py",
-		"/home/human/AI-Gambler/Beta/test.py",
+		"/home/human/AI-Gambler/Beta/Build/Driver/base_functions.py",
 		"/home/human/AI-Gambler/Beta/Build/Driver/driver.py",
+		"/home/human/AI-Gambler/Beta/test.py",
 		"/home/human/AI-Gambler/Config/config.ini",
 		"/home/human/AI-Gambler/Config/Cookies/p_cookies.pkl",
 		"/home/human/AI-Gambler/Config/Cookies/cookies.pkl",
@@ -251,11 +253,7 @@
 		"/home/human/Machine-Learning/Main/tf-rex/main.py",
 		"/home/human/Machine-Learning/Main/requirements.txt",
 		"/home/human/Machine-Learning/Main/brain.py",
-		"/home/human/Machine-Learning/Main/snake_train.py",
-		"/home/human/Machine-Learning/Main/dqn_keras.py",
-		"/home/human/Machine-Learning/Main/run.py",
-		"/home/human/Machine-Learning/Main/utils.py",
-		"/home/human/Machine-Learning/Main/ENV.py"
+		"/home/human/Machine-Learning/Main/snake_train.py"
 	],
 	"find":
 	{
@@ -380,7 +378,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
@@ -388,7 +386,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 311.0,
+	"side_bar_width": 242.0,
 	"status_bar_visible": false,
 	"template_settings":
 	{

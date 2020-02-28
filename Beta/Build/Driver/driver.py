@@ -26,7 +26,7 @@ class Driver:
 
 		#Setup
 		self.Config_Options = None
-		self.CONFIG_PATH = '/home/human/AI-Gambler/Config/config.ini'
+		self.CONFIG_PATH = '/home/human/AI-Gambler/CONFIG/config.ini'
 		self.Driver_Options = None
 
 		#Driver
