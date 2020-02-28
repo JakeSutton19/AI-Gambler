@@ -1,9 +1,12 @@
+#Imports (General)
+
+
 #Imports (Files)
-from bot_driver import *
+from .Driver.__init__ import *
 
 
 
-class Bot(Bot_Driver):
+class Bot(Driver):
 	def __init__(self):
 		#Initilaization
 		super().__init__()
@@ -12,27 +15,34 @@ class Bot(Bot_Driver):
 		self.email_auth = None
 		self.password_auth = None
 
-	def Initialize_Webdriver(self):
-		self.Initialize_Setup()
-		self.Initialize_Driver()
-		self.Initialize_Webpage()
+		#Cookies
+		self.cookie_check = None
+		self.set_cookies = None
 
-	def Initialize_Bovada(self):
+	def Bovada_Login(self):
+		#load cookies
+		self.load_cookies(self.Config_Options['COOKIES']['COOKIE_PATH'])
+
+		#Go to Home
+		self.Go_to_Site(self.Config_Options['BOVADA_URLS']['HOME'])
+		time.sleep(2)
+
+	
+	def Bovada_Save_Login(self):
 		#Authorization
 		self.email_auth = self.Config_Options['BOVADA_AUTH']['EMAIL']
 		self.password_auth = self.Config_Options['BOVADA_AUTH']['PASSWORD']
 
-		#Access Site
+		#Go to Login
 		self.Go_to_Site(self.Config_Options['BOVADA_URLS']['LOGIN'])
 		time.sleep(2)
 
-	def Bovada_Login(self):
+		#Login
 		try:
 			#Find Elements
 			email = self.Driver_Wait.until(EC.presence_of_element_located((By.ID, "email")))
 			password = self.Driver_Wait.until(EC.presence_of_element_located((By.ID, "login-password")))
 			submit = self.Driver_Wait.until(EC.presence_of_element_located((By.ID, "login-submit")))
-
 
 			#Clear 
 			email.clear()
@@ -47,7 +57,11 @@ class Bot(Bot_Driver):
 
 			#Submit
 			submit.click()
-			time.sleep(45)
+			time.sleep(1)
+
+			#Save Cookies and Return
+			input("Press [Enter] to continue.")
+			self.save_cookies(self.Config_Options['COOKIES']['COOKIE_PATH'])
 			return True
 		except (TimeoutException, NoSuchElementException):
 			return False
@@ -55,14 +69,11 @@ class Bot(Bot_Driver):
 	def Bovada_Poker_Setup(self):
 		#Access Site
 		self.Go_to_Site(self.Config_Options['BOVADA_URLS']['S_A_G'])
-		time.sleep(30)
+		time.sleep(10)
 
 	def Run(self):
-		self.Initialize_Webdriver()
-		self.Initialize_Bovada()
 		self.Bovada_Login()
 		self.Bovada_Poker_Setup()
-		time.sleep(5)
 		self.Close_Connection()
 
 

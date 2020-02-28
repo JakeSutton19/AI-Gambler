@@ -3,6 +3,7 @@ import re as re
 import numpy as np
 import time
 from bs4 import BeautifulSoup
+import pickle
 
 #Imports (Selenium)
 from selenium import webdriver
@@ -15,22 +16,27 @@ from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import NoSuchElementException
 
 #Imports (Files)
-from toolkit import Configure_From_File
+from .toolkit import Configure_From_File
 
 
-class Bot_Driver:
+class Driver:
 	def __init__(self):
 		#Attributes
 		self.CLASS_ID = 'Bot_Driver'
 
 		#Setup
 		self.Config_Options = None
-		self.CONFIG_PATH = '/home/human/AI-Gambler/Setup/config.ini'
+		self.CONFIG_PATH = '/home/human/AI-Gambler/Config/config.ini'
 		self.Driver_Options = None
 
 		#Driver
 		self.Driver = None
 		self.Driver_Wait = None
+
+		#Setup
+		self.Initialize_Setup()
+		self.Initialize_Driver()
+		self.Initialize_Webpage()
 	
 	#Setup from confige file
 	def Initialize_Setup(self):
@@ -44,8 +50,8 @@ class Bot_Driver:
 		self.Driver_Options.add_extension(self.Config_Options['EXTENSIONS']['DUCK_CRX_PATH'])
 
 		#Extras
-		# self.Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_1'])
-		# self.Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_4'])
+		# self.Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_1']) # Headless
+		# self.Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_4']) # Incognito
 
 	#initialize web driver
 	def Initialize_Driver(self): # driver = 'Chrome'
@@ -94,6 +100,20 @@ class Bot_Driver:
 			"(and is still running), it should resume scraping after ~30 seconds.")
 			self._pause_for_captcha()
 		
+
+	def save_cookies(self, path):
+		with open(path, 'wb') as filehandler:
+			pickle.dump(self.Driver.get_cookies(), filehandler)
+
+
+	def load_cookies(self, path):
+		with open(path, 'rb') as cookiesfile:
+			cookies = pickle.load(cookiesfile)
+			for cookie in cookies:
+				if isinstance(cookie.get('expiry'), float):
+					cookie['expiry'] = int(cookie['expiry'])
+				self.Driver.add_cookie(cookie)
+
 
 
 	#Go to site
