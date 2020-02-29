@@ -87,6 +87,32 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/home/human/AI-Gambler/Beta/Build/bot.py",
+			"settings":
+			{
+				"buffer_size": 2942,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/human/AI-Gambler/CONFIG/config.ini",
+			"settings":
+			{
+				"buffer_size": 801,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/human/AI-Gambler/Beta/Build/Driver/driver.py",
+			"settings":
+			{
+				"buffer_size": 4887,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -122,16 +148,23 @@
 	"expanded_folders":
 	[
 		"/home/human/AI-Gambler",
-		"/home/human/AI-Gambler/Beta"
+		"/home/human/AI-Gambler/Beta",
+		"/home/human/AI-Gambler/Beta/Build",
+		"/home/human/AI-Gambler/Beta/Build/Driver",
+		"/home/human/AI-Gambler/CONFIG",
+		"/home/human/AI-Gambler/CONFIG/Cookies"
 	],
 	"file_history":
 	[
+		"/home/human/AI-Gambler/TESTS/RNN-Pokerbot/pokerbot.py",
+		"/home/human/AI-Gambler/Beta/Build/bot.py",
+		"/home/human/AI-Gambler/Beta/Build/Driver/driver.py",
+		"/home/human/AI-Gambler/Beta/Build/Driver/base_functions.py",
+		"/home/human/AI-Gambler/CONFIG/config.ini",
+		"/home/human/AI-Gambler/.gitignore",
 		"/home/human/AI-Gambler/Beta/Build/Environment/train.py",
 		"/home/human/AI-Gambler/Beta/Build/Environment/test.py",
 		"/home/human/AI-Gambler/Beta/Build/Environment/environment.py",
-		"/home/human/AI-Gambler/Beta/Build/bot.py",
-		"/home/human/AI-Gambler/Beta/Build/Driver/base_functions.py",
-		"/home/human/AI-Gambler/Beta/Build/Driver/driver.py",
 		"/home/human/AI-Gambler/Beta/test.py",
 		"/home/human/AI-Gambler/Config/config.ini",
 		"/home/human/AI-Gambler/Config/Cookies/p_cookies.pkl",
@@ -173,7 +206,6 @@
 		"/home/human/AI-Gambler/.(Beta)/TESTS/RNN-Pokerbot/pokertable.py",
 		"/home/human/AI-Gambler/.(Beta)/TESTS/RNN-Pokerbot/table.py",
 		"/home/human/AI-Gambler/.(Beta)/TESTS/RNN-Pokerbot/tableQ.py",
-		"/home/human/AI-Gambler/.gitignore",
 		"/home/human/AI-Gambler/Beta/README.md",
 		"/home/human/LIFE/Life-Companion/LC/Command/Terminal/terminal_classes.py",
 		"/home/human/LIFE/Life-Companion/LC/Command/__init__.py",
@@ -251,9 +283,7 @@
 		"/home/human/Machine-Learning/Main/dqn.py",
 		"/home/human/Machine-Learning/Resources/gym-chrome-dino/README.md",
 		"/home/human/Machine-Learning/Main/tf-rex/main.py",
-		"/home/human/Machine-Learning/Main/requirements.txt",
-		"/home/human/Machine-Learning/Main/brain.py",
-		"/home/human/Machine-Learning/Main/snake_train.py"
+		"/home/human/Machine-Learning/Main/requirements.txt"
 	],
 	"find":
 	{
@@ -288,13 +318,95 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
-			]
-		},
-		{
-			"sheets":
-			[
+				{
+					"buffer": 0,
+					"file": "/home/human/AI-Gambler/Beta/Build/bot.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2942,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2867,
+								2867
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 663.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/human/AI-Gambler/CONFIG/config.ini",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 801,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								395,
+								395
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/human/AI-Gambler/Beta/Build/Driver/driver.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4887,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4620,
+								4620
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1287.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -315,18 +427,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.423448246416,
 			1.0
 		],
 		"rows":
@@ -378,7 +483,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},
@@ -386,7 +491,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 242.0,
+	"side_bar_width": 224.0,
 	"status_bar_visible": false,
 	"template_settings":
 	{

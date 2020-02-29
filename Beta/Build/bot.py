@@ -1,5 +1,5 @@
 #Imports (General)
-from bs4 import BeautifulSoup
+
 
 #Imports (Files)
 from .Driver.__init__ import *
@@ -19,94 +19,81 @@ class Bot(Driver):
 		self.cookie_check = None
 		self.set_cookies = None
 
-	
-	def Bovada_Save_Login(self):
-		#Authorization
+		#Bovada Authorization
 		self.email_auth = self.Config_Options['BOVADA_AUTH']['EMAIL']
 		self.password_auth = self.Config_Options['BOVADA_AUTH']['PASSWORD']
-		#Go to Login
+
+	
+	def Bovada_Setup_Login(self):
+		#Go to Login Page
 		self.Go_to_Site(self.Config_Options['BOVADA_URLS']['LOGIN'])
-		time.sleep(2)
+
 		#Login
 		try:
 			#Find Elements
 			email = self.Driver_Wait.until(EC.presence_of_element_located((By.ID, "email")))
 			password = self.Driver_Wait.until(EC.presence_of_element_located((By.ID, "login-password")))
+			remember_me_label = self.Driver_Wait.until(EC.presence_of_element_located((By.ID, "remember-me-label")))
 			submit = self.Driver_Wait.until(EC.presence_of_element_located((By.ID, "login-submit")))
-			#Clear 
+
+			#Input Login Info and Submit
 			email.clear()
 			password.clear()
 			time.sleep(1)
-			#Input
 			email.send_keys(self.email_auth)
 			time.sleep(1)
 			password.send_keys(self.password_auth)
 			time.sleep(1)
-			#Submit
-			submit.click()
+			remember_me_label.click()
 			time.sleep(1)
+			submit.click()
+
 			#Save Cookies and Return
-			input("Press [Enter] to continue.")
-			self.save_cookies(self.Config_Options['COOKIES']['POKER_COOKIE_PATH'])
+			input("Press [Enter] to save cookies.")
+			self.save_cookies(self.Config_Options['COOKIES']['TEST_COOKIE_PATH'])
 			return True
 		except (TimeoutException, NoSuchElementException):
-			self.Close_Connection()
+			print("[ERROR]: Unable to Login and Save.")
+			return False
 
 
-	def Bovada_Login(self):
+	def Bovada_Quick_Login(self):
 		try:
 			#load cookies
-			self.load_cookies(self.Config_Options['COOKIES']['POKER_COOKIE_PATH'])
+			self.load_cookies(self.Config_Options['COOKIES']['TEST_COOKIE_PATH'])
+
 			#Go to Home
 			self.Go_to_Site(self.Config_Options['BOVADA_URLS']['HOME'])
-			time.sleep(1)
 		except TimeoutException:
-			self.Close_Connection()
+			print("[ERROR]: Unable to preform Quick Login.")
+			return False
 
 
-	def click_checkbox_button(self, box_ID):
-		# try:
-		# 	button = self.Driver_Wait.until(EC.presence_of_element_located((By.ID, "{}".format(box_ID))))
-		# 	button.click()
-		# 	time.sleep(1)
-		# except (TimeoutException, NoSuchElementException):
-		# 	raise ValueError("Clicking the {} button failed".format(box_ID))
-		button = self.Driver.find_element_by_xpath("{}".format(box_ID))
-		time.sleep(1)
-		button.click()
-		time.sleep(1)
-
-	def GetSoup(self):
-		soup = BeautifulSoup(self.Driver.page_source, 'html.parser')
-		print(soup.prettify())
-
-
-	def Bovada_Poker_Setup(self):
+	
+	def Bovada_Cash_Game_Setup(self):
+		#Access Site
+		self.Go_to_Site(self.Config_Options['BOVADA_URLS']['CASH_GAME'])
+	
+		#Setup Texas Holdem
 		try:
-			#Access Site
-			self.Go_to_Site(self.Config_Options['BOVADA_URLS']['S_A_G'])
-			time.sleep(5)
-
-			# #Settings
-			# input("Press [Enter] to continue.")
-			# self.click_checkbox_button("checkbox-tournamentType-single")
-			# self.click_checkbox_button("checkbox-gameType-holdem")
-			# self.click_checkbox_button("checkbox-buyIn-five")
-
-			# #Save Cookies and Return
-			# input("Press [Enter] to continue.")
-			# self.save_cookies(self.Config_Options['COOKIES']['POKER_COOKIE_PATH'])
-			# time.sleep(2)
+			#Find Elements
+			input("Press [Enter] to continue.")
+			next_button = self.Driver.find_elements_by_xpath("/html/body/bx-site-preloader/div/bx-headless-site/main/pkr-app/div/div/pkr-cash-game/pkr-cash-zone-filter/div/div/bx-panel/div/div[2]/div/div[2]/pkr-single-game-filter/form/div[3]/div[3]/div/div/button")
+			# next_button = self.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, '//button[@type="submit"]')))
+			# practice_mode_toggle = self.Driver_Wait.until(EC.presence_of_element_located((By.ID, "vr2owa")))
+			
+			#Activate Elements
+			input("Press [Enter] to continue.")
+			next_button.click()
 		except (TimeoutException, NoSuchElementException):
-			self.Close_Connection()
+			print("[ERROR]: Unable to find elements")
+			return False
+			
+
 		
-
 	def Run(self):
-		self.Bovada_Login()
-		self.Bovada_Poker_Setup()
-		self.GetSoup()
-		time.sleep(30)
-		self.Close_Connection()
-
+		self.Bovada_Quick_Login()
+		self.Bovada_Cash_Game_Setup()
+		self.End_Test()
 
 
