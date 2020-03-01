@@ -68,30 +68,6 @@ class Bovada_Login(Bot):
 			print("[ERROR]: Unable to preform Quick Login.")
 			return False
 
-	def Nav_to_Basketball_Page(self):
-		#Access Site
-		self.Go_to_Site(self.Config_Options['BOVADA_URLS']['BASKETBALL_URL'])
-
-		try:
-			#Click Dropdown
-			dropdown_box = self.Driver_Wait.until(EC.presence_of_element_located((By.ID, "small-dropdown")))
-			time.sleep(.5)
-			dropdown_box.click()
-
-			#Click Quarter Lines
-			q_lines = self.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, 
-				"/html/body/bx-site/ng-component/div/sp-sports-ui/div/main/div/section/main/sp-path-event/div/header/sp-filter/section/div[2]/sp-market-type-filter/figure/ul/li[4]")))
-			time.sleep(.5)
-			q_lines.click()
-
-			#Click Show All
-			show_button = self.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, 
-				"/html/body/bx-site/ng-component/div/sp-sports-ui/div/main/div/section/main/sp-path-event/div/sp-happening-now/div/div/div[3]/button")))
-			time.sleep(.5)
-			show_button.click()
-		except:
-			print("[ERROR]: Unable to find elements")
-			return False
 
 
 	

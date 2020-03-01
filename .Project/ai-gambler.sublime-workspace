@@ -91,59 +91,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/home/human/AI-Gambler/BUILD/bovada.py",
-			"settings":
-			{
-				"buffer_size": 2888,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/human/AI-Gambler/test.py",
-			"settings":
-			{
-				"buffer_size": 61,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/human/AI-Gambler/BUILD/Bot/driver.py",
-			"settings":
-			{
-				"buffer_size": 2443,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/human/AI-Gambler/BUILD/Bot/bot.py",
-			"settings":
-			{
-				"buffer_size": 998,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/human/AI-Gambler/BUILD/Bot/tools.py",
-			"settings":
-			{
-				"buffer_size": 278,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/human/AI-Gambler/BUILD/Bot/__init__.py",
-			"settings":
-			{
-				"buffer_size": 18,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -180,21 +127,27 @@
 	[
 		"/home/human/AI-Gambler",
 		"/home/human/AI-Gambler/BUILD",
-		"/home/human/AI-Gambler/CONFIG",
-		"/home/human/AI-Gambler/CONFIG/Cookies"
+		"/home/human/AI-Gambler/BUILD/Bot"
 	],
 	"file_history":
 	[
+		"/home/human/AI-Gambler/test.py",
+		"/home/human/AI-Gambler/BUILD/Bot/driver.py",
+		"/home/human/AI-Gambler/BUILD/bovada.py",
+		"/home/human/AI-Gambler/CONFIG/config.ini",
+		"/home/human/AI-Gambler/BUILD/bovada_login.py",
+		"/home/human/AI-Gambler/BUILD/Bot/bot.py",
+		"/home/human/AI-Gambler/CONFIG/Cookies/cookies.pkl",
+		"/home/human/AI-Gambler/BUILD/Bot/__init__.py",
+		"/home/human/AI-Gambler/BUILD/Bot/tools.py",
 		"/home/human/AI-Gambler/BUILD/test.py",
 		"/home/human/AI-Gambler/BUILD/Bot/Kit/__init__.py",
 		"/home/human/AI-Gambler/BUILD/Bot/Kit/toolkit.py",
-		"/home/human/AI-Gambler/BUILD/Bot/bot.py",
 		"/home/human/AI-Gambler/BUILD/Bot/bovada.py",
 		"/home/human/AI-Gambler/BUILD/Bot/Kit/bot.py",
 		"/home/human/AI-Gambler/BUILD/Bot/Kit/bovada.py",
 		"/home/human/AI-Gambler/BUILD/Bot/Kit/driver.py",
 		"/home/human/AI-Gambler/Beta/Build/bovada.py",
-		"/home/human/AI-Gambler/CONFIG/config.ini",
 		"/home/human/AI-Gambler/Beta/Build/Driver/base_functions.py",
 		"/home/human/AI-Gambler/Beta/Build/Driver/driver.py",
 		"/home/human/AI-Gambler/TESTS/RNN-Pokerbot/pokerbot.py",
@@ -305,14 +258,7 @@
 		"/home/human/Machine-Learning/z-Extras/ALPHA/Snake/Brain/brain.py",
 		"/home/human/Machine-Learning/Test/run.py",
 		"/home/human/Machine-Learning/Test/dqn_keras.py",
-		"/home/human/Machine-Learning/Test/utils.py",
-		"/home/human/Machine-Learning/DDQ/agent.py",
-		"/home/human/Machine-Learning/DDQ/network.py",
-		"/home/human/Machine-Learning/DDQ/replay.py",
-		"/home/human/Machine-Learning/DDQ/utils.py",
-		"/home/human/Machine-Learning/DDQ/main.py",
-		"/home/human/Machine-Learning/Test/main_keras_dqn_pong.py",
-		"/home/human/Machine-Learning/Test/main_keras_ddqn_lunar_lander.py"
+		"/home/human/Machine-Learning/Test/utils.py"
 	],
 	"find":
 	{
@@ -347,186 +293,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/home/human/AI-Gambler/BUILD/bovada.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2888,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2753,
-								2798
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 585.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/home/human/AI-Gambler/test.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 61,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 2,
-					"file": "/home/human/AI-Gambler/BUILD/Bot/driver.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2443,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								626,
-								626
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 195.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/home/human/AI-Gambler/BUILD/Bot/bot.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 998,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								721,
-								721
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/home/human/AI-Gambler/BUILD/Bot/tools.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 278,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								278,
-								278
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/home/human/AI-Gambler/BUILD/Bot/__init__.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 18,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								9,
-								9
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -547,18 +315,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
 			1.0
 		],
 		"rows":
@@ -618,7 +379,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 224.0,
+	"side_bar_width": 202.0,
 	"status_bar_visible": false,
 	"template_settings":
 	{

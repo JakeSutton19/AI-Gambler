@@ -1,5 +1,5 @@
 #Imports (General)
-
+from bs4 import BeautifulSoup
 
 #Imports (Files)
 from .bovada_login import *
@@ -11,149 +11,82 @@ class Bovada_Bot(Bovada_Login):
 		#Initilaization
 		super().__init__()
 
+		#Soup
+		self.soup = None
 
-	def Poker_Cash_Game_Setup_PracticeMode(self):
-		#Access Site
-		self.Go_to_Site(self.Config_Options['BOVADA_URLS']['CASH_GAME'])
+		#Data
+		self.data_table = None
 
-		#Switch to Frame
-		self.Switch_Frame()
-	
-		#Setup Texas Holdem
+
+	def Click_Dropdown_Box(self):
 		try:
-			#Click Practice Mode
-			practice = self.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, 
-				'/html/body/bx-site-preloader/div/bx-headless-site/main/pkr-app/div/div/pkr-cash-game/pkr-cash-zone-filter/div/div/bx-panel/div/div[2]/div/div[2]/pkr-single-game-filter/form/div[3]/div[4]/bx-toggle')))
+			dropdown_box = self.Driver_Wait.until(EC.presence_of_element_located((By.ID, "small-dropdown")))
 			time.sleep(.5)
-			practice.click()
-
-			#Click Next Button
-			next_button = self.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, '//button[@type="submit"]')))
-			time.sleep(.5)
-			next_button.click()
-
-			#Click Stake Selection
-			stake = self.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, 
-				'/html/body/bx-site-preloader/div/bx-headless-site/main/pkr-app/div/div/pkr-cash-game/pkr-cash-zone-filter/div/div/bx-panel/div/div[2]/div/div[2]/pkr-single-game-filter/pkr-overlay/div/div/section/pkr-buy-in/div/div/form/bx-dropdown')))
-			time.sleep(.5)
-			stake.click()
-
-			# $2.00/$4.00
-			first_op = self.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, 
-				'/html/body/bx-site-preloader/div/bx-headless-site/main/pkr-app/div/div/pkr-cash-game/pkr-cash-zone-filter/div/div/bx-panel/div/div[2]/div/div[2]/pkr-single-game-filter/pkr-overlay/div/div/section/pkr-buy-in/div/div/form/bx-dropdown/figure/ul/li')))
-			time.sleep(.5)
-			first_op.click()
-
-			#Click Take My Seat
-			take_seat = self.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, 
-				'/html/body/bx-site-preloader/div/bx-headless-site/main/pkr-app/div/div/pkr-cash-game/pkr-cash-zone-filter/div/div/bx-panel/div/div[2]/div/div[2]/pkr-single-game-filter/pkr-overlay/div/div/section/pkr-buy-in/div/div/form/div/div[3]/div/div[1]/button')))
-			time.sleep(.5)
-			take_seat.click()
+			dropdown_box.click()
 		except:
-			print("[ERROR]: Unable to find elements")
+			print("[ERROR]: Unable to Click_Dropdown_Box")
 			return False
 
 
-	def Poker_Cash_Game_Setup_Live(self):
-		#Access Site
-		self.Go_to_Site(self.Config_Options['BOVADA_URLS']['CASH_GAME'])
-
-		#Refresh 
-		self.Driver.refresh()
-	
-		#Setup Texas Holdem
+	def Click_Quarter_Lines(self):
 		try:
-			#Click Next Button
-			next_button = self.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, '//button[@type="submit"]')))
+			q_lines = self.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, 
+					"/html/body/bx-site/ng-component/div/sp-sports-ui/div/main/div/section/main/sp-path-event/div/header/sp-filter/section/div[2]/sp-market-type-filter/figure/ul/li[4]")))
 			time.sleep(.5)
-			next_button.click()
-
-			#Click Stake Selection
-			stake = self.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, 
-				'/html/body/bx-site-preloader/div/bx-headless-site/main/pkr-app/div/div/pkr-cash-game/pkr-cash-zone-filter/div/div/bx-panel/div/div[2]/div/div[2]/pkr-single-game-filter/pkr-overlay/div/div/section/pkr-buy-in/div/div/form/bx-dropdown')))
-			time.sleep(.5)
-			stake.click()
-
-			# $0.02/$0.05
-			first_op = self.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, 
-				'/html/body/bx-site-preloader/div/bx-headless-site/main/pkr-app/div/div/pkr-cash-game/pkr-cash-zone-filter/div/div/bx-panel/div/div[2]/div/div[2]/pkr-single-game-filter/pkr-overlay/div/div/section/pkr-buy-in/div/div/form/bx-dropdown/figure/ul/li[1]')))
-			time.sleep(.5)
-			first_op.click()
-
-			#Click Take My Seat
-			self.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, 
-				'/html/body/bx-site-preloader/div/bx-headless-site/main/pkr-app/div/div/pkr-cash-game/pkr-cash-zone-filter/div/div/bx-panel/div/div[2]/div/div[2]/pkr-single-game-filter/pkr-overlay/div/div/section/pkr-buy-in/div/div/form/div/div[3]/div/div[1]/button'))).click()
+			q_lines.click()
 		except:
-			print("[ERROR]: Unable to find elements")
+			print("[ERROR]: Unable to Click_Quarter_Lines")
 			return False
 
 
-	# def Poker_Play_TexasHoldem(self):
-	# 	input("Press [Enter] to Play.")
+	def Click_Show_All(self):
+		try:
+			show_button = self.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, 
+					"/html/body/bx-site/ng-component/div/sp-sports-ui/div/main/div/section/main/sp-path-event/div/sp-happening-now/div/div/div[3]/button")))
+			time.sleep(.5)
+			show_button.click()
+		except:
+			print("[ERROR]: Unable to Click_Show_All")
+			return False
 
-	# 	buy_chips_selection = self.Driver.find_element_by_xpath('/html/body/div[1]/div/div[2]/div[2]/div[2]/div[2]/div[4]/div[2]/div/div[2]/div[1]/label[1]')
-	# 	time.sleep(.5)
-	# 	print(buy_chips_selection)
-	# 	buy_chips_selection.click()
 
-		# try:
-		# 	input("Press [Enter] to Play.")
+	def Nav_to_Basketball_Page(self):
+		try:
+			#Access Site
+			self.Go_to_Site(self.Config_Options['BOVADA_URLS']['BASKETBALL_URL'])
 
-		# 	# Switch to Frame
-		# 	# self.Switch_Frame()
+			#Click Dropdown
+			self.Click_Dropdown_Box()
 
-		# 	buttons = self.Driver_Wait.until(EC.presence_of_element_located((By.TAG_NAME, 'button'))).click()
-		# 	# print(buttons)
-		# 	# buttons.click()
+			#Click Quarter Lines
+			self.Click_Quarter_Lines()
 
-		# 	# input("Press [Enter] to Fold.")
+			#Click Show All
+			# self.Click_Show_All()
+		except:
+			print("[ERROR]: Unable to Nav_to_Basketball_Page")
+			return False
 
-		# 	# #Click Fold
-		# 	# fold = self.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, 
-		# 	# 	'/html/body/div[1]/div/div[2]/div[2]/div[2]/div[2]/div[4]/div[2]/div/div[2]/div[1]/div[1]/button')))
-		# 	# time.sleep(.5)
-		# 	# fold.click()
 
-		# 	# #Click Check
-		# 	# check = self.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, 
-		# 	# 	'/html/body/div[1]/div/div[2]/div[2]/div[2]/div[2]/div[4]/div[2]/div/div[2]/div[1]/div[2]/button')))
-		# 	# time.sleep(.5)
-		# 	# check.click()
+	def GetSoup(self):
+		soup = BeautifulSoup(self.Driver.page_source, 'html.parser')
+		print(soup.prettify())
 
-		# 	#Click to Raise
-		# 	# //*[@id="root"]/div/div[2]/div[2]/div[2]/div[2]/div[4]/div[2]/div/div[2]/div[1]/div[3]/button
 
-		# 	#Click Wait for BB
-		# 	# /html/body/div[1]/div/div[2]/div[2]/div[2]/div[2]/div[4]/div[2]/div/div[2]/div[1]/label[1]
+	def Scrape_Page(self):
+		input("Press [Enter] to scrape.")
+		#Get Soup
+		self.soup = BeautifulSoup(self.Driver.page_source, 'html.parser')
 
-		# 	#CLick Join Next Hand
-		# 	# /html/body/div[1]/div/div[2]/div[2]/div[2]/div[2]/div[4]/div[2]/div/div[2]/div[1]/label[2]
+		#Find Table
+		data_table = self.soup.findAll('span')
+		print(data_table)
 
-		# 	#Click Buy Chips
-		# 	# buy_chips_selection = self.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, 
-		# 	# 	'//*[@id="root"]/div/div[2]/div[2]/div[2]/div[2]/div[4]/div[1]/div/div[2]/button')))
-			# buy_chips_selection = self.Driver.find_element_by_xpath('//*[@id="root"]/div/div[2]/div[2]/div[2]/div[2]/div[4]/div[1]/div/div[2]/button')
-			# time.sleep(.5)
-			# print(buy_chips_selection)
-			# buy_chips_selection.click()
-			
 
-		# 	# #Click Buy
-		# 	# buy_chips = self.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, 
-		# 	# 	'/html/body/div[1]/div/div[2]/div[2]/div[2]/div[2]/div[4]/div[1]/div/div[2]/div/button')))
-		# 	# time.sleep(.5)
-		# 	# buy_chips.click()
-		# except:
-		# 	print("[ERROR]: Unable to find elements")
-		# 	return False
-		
-
-		
+	
 	def Run(self):
 		self.Bovada_Quick_Login()
-		self.Poker_Cash_Game_Setup_PracticeMode()
-		# self.Poker_Play_TexasHoldem()
+		self.Nav_to_Basketball_Page()
+		self.Scrape_Page()
 		
 		self.End_Test()
-
-
