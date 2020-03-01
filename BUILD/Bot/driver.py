@@ -65,6 +65,7 @@ class Driver:
 	
 	#Go to site
 	def Go_to_Site(self, site):
+		time.sleep(1)
 		self.Driver.get(site)
 
 
