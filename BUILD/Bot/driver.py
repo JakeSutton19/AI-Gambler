@@ -48,6 +48,7 @@ class Driver:
 		Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_1']) # No sandbox
 		Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_2']) # Maximize
 		Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_3']) # No notifications
+		Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_4']) # No notifications
 		Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_6']) # No notifications
 		Driver_Options.add_experimental_option("excludeSwitches",["ignore-certificate-errors"])
 
@@ -84,8 +85,16 @@ class Driver:
 
 
 	def Switch_Frame(self):
-		iframe = self.Driver.find_element_by_tag_name('iframe')
+		#Click Fold
+		iframe = self.Driver_Wait.until(EC.presence_of_element_located((By.TAG_NAME, 'iframe')))
 		self.Driver.switch_to.frame(iframe)
+
+
+	def Switch_to_GameFrame(self):
+		#Click Fold
+		iframe = self.Driver_Wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'f944aqf')))
+		self.Driver.switch_to.frame(iframe)
+		
 
 
 	def Switch_Default_Frame(self):
