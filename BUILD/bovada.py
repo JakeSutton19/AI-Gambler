@@ -79,7 +79,11 @@ class Bovada_Bot(Bovada_Login):
 		self.soup = BeautifulSoup(self.Driver.page_source, 'html.parser')
 
 		#Find Table
+		bet_prices = []
 		data_table = self.soup.findAll('span')
+		# for rows in data_table:
+		# 	bet_prices.append(rows)
+
 		print(data_table)
 
 
@@ -90,3 +94,5 @@ class Bovada_Bot(Bovada_Login):
 		self.Scrape_Page()
 		
 		self.End_Test()
+
+
