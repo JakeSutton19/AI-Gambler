@@ -48,10 +48,10 @@ class Bot:
 		#Web Driver Options
 		Driver_Options = Options()
 		Driver_Options.add_extension(self.Config_Options['EXTENSIONS']['DUCK_CRX_PATH'])
-		Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_1']) # No sandbox
+		Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_1']) # User-data
 		Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_2']) # Maximize
-		Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_3']) # No notifications
-		Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_4']) # No notifications
+		Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_3']) # No sandbox
+		# Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_4']) # Incognito
 		Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_6']) # No notifications
 		Driver_Options.add_experimental_option("excludeSwitches",["ignore-certificate-errors"])
 
@@ -87,6 +87,7 @@ class Bot:
 				if isinstance(cookie.get('expiry'), float):
 					cookie['expiry'] = int(cookie['expiry'])
 				self.Driver.add_cookie(cookie)
+		time.sleep(.5)
 
 
 	def Switch_Frame(self):

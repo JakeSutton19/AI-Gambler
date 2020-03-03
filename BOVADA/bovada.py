@@ -20,9 +20,27 @@ def End_Test(Bot):
 def Test_Run(Bot):
 	Bovada_Quick_Login(Bot)
 	Nav_to_Basketball_Page(Bot)
-	Scrape_Live_Games(Bot)
 	End_Test(Bot)
 
 
 Bovada = Bot()
 Test_Run(Bovada)
+
+
+
+
+
+
+# class Bet_Controller:
+# 	def __init__(self, Bot):
+# 		#Initialize
+# 		self.Bot = Bot
+
+# 		#Bets
+# 		self.bet = None
+# 		self.bet_placed = None
+# 		self.bet_amount = None
+# 		self.bet_info = None
+# 		self.future_bet = None
+# 		self.bet_status = None
+# 		self.bet_result = None
