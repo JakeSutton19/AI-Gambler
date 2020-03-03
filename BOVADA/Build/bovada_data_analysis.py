@@ -5,7 +5,22 @@ import csv
 
 #Imports Bot
 from .bot import *
+from .bovada_game import Bovada_Game
 
+#Games
+Games = []
+
+
+
+def Create_Game(Bot, DF):
+	#COunter
+	i = 0
+
+	#Iterate through each game
+	for games in len(DF):
+		g = Bovada_Game(DF["Team1"][i], DF["Team2"][i], DF["Over"][i], DF["Under"][i])
+		Games.append(g)
+		i += 1
 
 
 def Create_Future_Games_CSV(Bot, Dict):

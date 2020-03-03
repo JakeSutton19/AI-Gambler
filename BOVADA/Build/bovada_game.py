@@ -3,14 +3,14 @@ from .bot import *
 
 
 class Bovada_Game:
-	def __init__(self):
+	def __init__(self, Team1, Team2, Over, Under):
 		#Teams
-		self.Team1 = None
-		self.Team2 = None
+		self.Team1 = Team1
+		self.Team2 = Team2
 
 		#O/U
-		self.Over = None
-		self.Under = None
+		self.Over = Over
+		self.Under = Under
 		
 		#Score
 		self.Score1 = None

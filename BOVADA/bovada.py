@@ -85,7 +85,8 @@ def Test_Run(Bot):
 	# Bovada_Quick_Login(Bot)
 	# Nav_to_Basketball_Page(Bot)
 	# games = Create_Future_Games_List(Bot)
-	Read_Future_Games_CSV(Bot)
+	data = Read_Future_Games_CSV(Bot)
+	print(data["Over"][1])
 	End_Test(Bot)
 
 
