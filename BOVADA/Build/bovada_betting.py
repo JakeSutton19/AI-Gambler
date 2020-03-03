@@ -3,6 +3,32 @@ from .bot import *
 
 
 
+# Click Over
+def Select_Over_Under(Bot, game, over_or_under): # Starts at 1
+	#Identify O/U
+	if (over_or_under == 'over'):
+		pick = 1
+	elif (over_or_under == 'under'):
+		pick = 2
+	else:
+		print("No selection, picking over.")
+		pick = 1
+
+	#Select Button
+	try:
+		Bet_Button = Bot.Driver_Wait.until(EC.presence_of_element_located((By.XPATH,
+		 "/html/body/bx-site/ng-component/div/sp-sports-ui/div/main/div/section/main/sp-path-event/div/sp-next-events/div/div/div[1]/sp-coupon[{}] \
+		 /sp-multi-markets/section/section/sp-outcomes/sp-two-way-vertical[3]/ul/li[{}]/sp-outcome/button".format(game, pick))))
+		time.sleep(.5)
+		Bet_Button.click()
+
+		#Return
+		return True
+	except:
+		print("[ERROR]: Unable to Click_Bet_Button")
+		return False
+
+
 # Click Bet
 def Click_Bet_Button(Bot):
 	try:
@@ -70,4 +96,6 @@ def Make_Bet(Bot):
 	except:
 		print("[ERROR]: Unable to Make_Bet")
 		return False
+
+
 

@@ -13,6 +13,29 @@ def Click_Dropdown_Box(Bot):
 		return False
 
 
+def Select_League_Dropbox(Bot):
+	try:
+		league = Bot.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, 
+				"/html/body/bx-site/ng-component/div/sp-sports-ui/div/main/div/section/main/sp-path-event/div/header/sp-filter/section/div[2]/sp-event-path-filter/figure/input")))
+		time.sleep(.5)
+		league.click()
+		return True
+	except:
+		print("[ERROR]: Unable to Click_Quarter_Lines")
+		return False
+
+def Select_League(Bot):
+	try:
+		league = Bot.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, 
+				"/html/body/bx-site/ng-component/div/sp-sports-ui/div/main/div/section/main/sp-path-event/div/header/sp-filter/section/div[2]/sp-event-path-filter/figure/ul/li[{}]".format(4))))
+		time.sleep(.5)
+		league.click()
+		return True
+	except:
+		print("[ERROR]: Unable to Click_Quarter_Lines")
+		return False
+
+
 def Click_Quarter_Lines(Bot):
 	try:
 		q_lines = Bot.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, 
@@ -43,13 +66,16 @@ def Nav_to_Basketball_Page(Bot):
 		Bot.Go_to_Site(Bot.Config_Options['BOVADA_URLS']['BASKETBALL_URL'])
 
 		#Click Dropdown
-		# Click_Dropdown_Box(Bot)
+		Click_Dropdown_Box(Bot)
 
 		#Click Quarter Lines
-		# Click_Quarter_Lines(Bot)
+		Click_Quarter_Lines(Bot)
 
-		#Click Show All
-		# Click_Show_All(Bot)
+		#Select League Dropbown
+		Select_League_Dropbox(Bot)
+
+		#Select League 
+		Select_League(Bot)
 	except:
 		print("[ERROR]: Unable to Nav_to_Basketball_Page")
 		return False

@@ -17,9 +17,26 @@ def End_Test(Bot):
 	quit()
 
 
+def Make_Test(Bot):
+	try:
+		#Bet
+		input("Press [ENTER] to start test.")
+		Select_Over_Under(Bot, 1, 'over')
+		time.sleep(5)
+		Clear_Selection_Button(Bot)
+
+		#Return
+		return True
+	except:
+		print("[ERROR]: Unable to Make_Test")
+		return False
+
+
+
 def Test_Run(Bot):
 	Bovada_Quick_Login(Bot)
 	Nav_to_Basketball_Page(Bot)
+	Scrape_Live_Games(Bot)
 	End_Test(Bot)
 
 

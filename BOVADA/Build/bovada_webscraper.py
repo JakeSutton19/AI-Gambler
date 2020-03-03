@@ -105,7 +105,7 @@ def Scrape_Live_Games(Bot):
 	soup = BeautifulSoup(Bot.Driver.page_source, 'html.parser')
 		
 	#Isolate Live Games
-	hn_bucket = soup.find('div', class_="happening-now-bucket") 
+	# hn_bucket = soup.find('div', class_="happening-now-bucket") 
 
 	#Identify individual Games
 	for game in hn_bucket.findAll('section', class_="coupon-content more-info"):
