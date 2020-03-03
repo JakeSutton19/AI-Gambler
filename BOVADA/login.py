@@ -2,7 +2,7 @@
 
 
 #Imports (Files)
-from .Bot.__init__ import *
+from .Base.__init__ import *
 
 
 

@@ -66,6 +66,8 @@ class Bot:
 		# Initialize Start Page
 		self.Driver.get(self.Config_Options['BASE_URLS']['BASE'])
 
+		# Wait and Load (Effect)
+		time.sleep(1.5)
 	
 	#Go to site
 	def Go_to_Site(self, site):
