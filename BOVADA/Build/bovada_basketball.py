@@ -72,11 +72,12 @@ def Nav_to_Basketball_Page(Bot):
 		#Click Quarter Lines
 		Click_Quarter_Lines(Bot)
 
-		#Select League Dropbown
-		Select_League_Dropbox(Bot)
+		# #Select League Dropbown
+		# Select_League_Dropbox(Bot)
 
-		#Select League 
-		Select_League(Bot)
+		# #Select League 
+		# Select_League(Bot)
+		time.sleep(2)
 
 		#Return
 		return True

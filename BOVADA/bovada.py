@@ -5,39 +5,87 @@ import time
 from Build.__init__ import *
 
 
-#Functions
-#
-def End_Test(Bot):
-	#Countdown
-	input("Press [ENTER] to end session.")
-	time.sleep(.5)
-	Bot.Driver.quit()
-	time.sleep(.5)
-	print("\nSession ended.")
-	quit()
+
+
+class Bovada_Controller:
+	def __init__(self, Bot):
+		#Initialize
+		self.Bot = Bot
+
+		#Status
+		self.login_successful = None
+		self.Nav_successful = None
+		self.Scrape_Live = None
+		self.Scrape_Future = None
+
+
+	def Game_Monitoring(self):
+		if (self.Scrape_Live == False):
+			data_df = Read_Future_Games_CSV(self.Bot)
 
 
 
-def Make_Test(Bot):
-	try:
-		#Bet
-		input("Press [ENTER] to start test.")
-		Select_Over_Under(Bot, 1, 'over')
-		time.sleep(5)
-		Clear_Selection_Button(Bot)
 
-		#Return
-		return True
-	except:
-		print("[ERROR]: Unable to Make_Test")
-		return False
+	def Setup(self):
+		#Create Bot
+		self.Bot = Bot()
+
+		#LogIn to Bovada
+		try:
+			Bovada_Quick_Login(self.Bot)
+			self.login_successful = True
+		except:
+			print("[ERROR]: Unable to Bovada_Quick_Login. Attempt Manual Login")
+			self.login_successful = False
+
+
+		#Go to Basketball Page
+		try:
+			Nav_to_Basketball_Page(self.Bot)
+			self.Nav_successful = True
+		except:
+			print("[ERROR]: Unable to Nav_to_Basketball_Page.")
+			self.Nav_successful = False
+
+
+		#Scrape Live Games
+		try:
+			live_games = Create_Live_Games_List(self.Bot)
+			self.Scrape_Live = True
+		except:
+			print("[ERROR]: Unable to Create_Live_Games_List.")
+			self.Scrape_Live = False
+
+
+		#Check Data Status
+		if (self.Scrape_Live == False):
+			try:
+				#Scrape Future Data
+				future_games = Create_Future_Games_List(self.Bot)
+				self.Scrape_Future = True
+			except:
+				print("[ERROR]: Unable to Create_Future_Games_List.")
+				self.Scrape_Future = False
+			#Create CSV
+			try:
+				Create_Future_Games_CSV(self.Bot, future_games)
+			except:
+				print("[ERROR]: Unable to Create_Future_Games_CSV.")
+		else:
+			#Create CSV
+			try:
+				Create_Live_Games_CSV(self.Bot, live_games)
+			except:
+				print("[ERROR]: Unable to Create_Live_Games_CSV.")
+			
 
 
 
 def Test_Run(Bot):
-	Bovada_Quick_Login(Bot)
-	Nav_to_Basketball_Page(Bot)
-	Create_Future_Games_List(Bot)
+	# Bovada_Quick_Login(Bot)
+	# Nav_to_Basketball_Page(Bot)
+	# games = Create_Future_Games_List(Bot)
+	Read_Future_Games_CSV(Bot)
 	End_Test(Bot)
 
 
@@ -49,16 +97,3 @@ Test_Run(Bovada)
 
 
 
-# class Bet_Controller:
-# 	def __init__(self, Bot):
-# 		#Initialize
-# 		self.Bot = Bot
-
-# 		#Bets
-# 		self.bet = None
-# 		self.bet_placed = None
-# 		self.bet_amount = None
-# 		self.bet_info = None
-# 		self.future_bet = None
-# 		self.bet_status = None
-# 		self.bet_result = None

@@ -42,8 +42,8 @@ def Grab_Scores(Scores, data_dict):
 			all_times.append(items2.get_text())
 
 		#Update
-		data_dict['Top'] = all_scores[0]
-		data_dict['Bottom'] = all_scores[1]
+		data_dict['Score1'] = all_scores[0]
+		data_dict['Score2'] = all_scores[1]
 		data_dict['Quarter'] = all_times[0]
 		data_dict['Time'] = all_times[1]
 
@@ -62,8 +62,8 @@ def Grab_Teams(Teams, data_dict):
 			all_teams.append(items1.get_text())
 
 		#Update
-		data_dict['Top Team'] = all_teams[0]
-		data_dict['Bottom Team'] = all_teams[1]
+		data_dict['Team1'] = all_teams[0]
+		data_dict['Team2'] = all_teams[1]
 
 		#Ship Data
 		return data_dict
@@ -93,7 +93,7 @@ def Grab_Outcomes(Outcomes, data_dict):
 def Create_Live_Games_List(Bot):
 	try:
 		#Initialize
-		input("Press [Enter] to run scrape.")
+		# input("Press [Enter] to run scrape.")
 
 		#Isolate Live Games
 		Live_Games = []
@@ -118,7 +118,6 @@ def Create_Live_Games_List(Bot):
 			Live_Games.append(data_dict)
 			
 		#Return Games Info
-		print(Live_Games)
 		return Live_Games
 	except:
 		print("[ERROR]: Unable to Create_Live_Games_List")
@@ -128,7 +127,7 @@ def Create_Live_Games_List(Bot):
 def Create_Future_Games_List(Bot):
 	try:
 		#Initialize
-		input("Press [Enter] to run scrape.")
+		# input("Press [Enter] to run scrape.")
 
 		#Isolate Future Games
 		Live_Games = []
@@ -150,7 +149,6 @@ def Create_Future_Games_List(Bot):
 			Live_Games.append(data_dict)
 				
 		#Return Games Info
-		print(Live_Games)
 		return Live_Games
 	except:
 		print("[ERROR]: Unable to Create_Future_Games_List")

@@ -51,15 +51,18 @@ class Bot:
 		Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_1']) # User-data
 		Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_2']) # Maximize
 		Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_3']) # No sandbox
-		# Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_4']) # Incognito
-		# Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_5']) # Headless
 		Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_6']) # No notifications
 		Driver_Options.add_experimental_option("excludeSwitches",["ignore-certificate-errors"])
+		Driver_Options.add_argument('--mute-audio')
+		Driver_Options.add_argument('--dns-prefetch-disable')
+		Driver_Options.add_argument('--lang=en-US')
+		Driver_Options.add_argument('--disable-setuid-sandbox')
+		# Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_4']) # Incognito
+		# Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_5']) # Headless
 
 		#Initialize Web Driver
 		self.Driver = webdriver.Chrome(options=Driver_Options, 
-			executable_path=self.Config_Options['ENVIRONMENT']['CHROMEDRIVER_PATH'],
-			service_log_path=self.Config_Options['LOG']['SERVICE_LOG_PATH'])
+			executable_path=self.Config_Options['ENVIRONMENT']['CHROMEDRIVER_PATH'])
 
 		#Driver Waits
 		self.Driver.implicitly_wait(10)
