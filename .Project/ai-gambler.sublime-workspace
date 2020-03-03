@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"data",
+				"data_dict"
+			],
+			[
+				"Bo",
+				"Bovada"
+			],
+			[
 				"clo",
 				"Close_Connection"
 			],
@@ -91,23 +99,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/home/human/AI-Gambler/BOVADA/login.py",
-			"settings":
-			{
-				"buffer_size": 1833,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/human/AI-Gambler/BOVADA/basketball.py",
-			"settings":
-			{
-				"buffer_size": 2183,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -143,17 +134,40 @@
 	"expanded_folders":
 	[
 		"/home/human/AI-Gambler",
-		"/home/human/AI-Gambler/BOVADA"
+		"/home/human/AI-Gambler/BOVADA",
+		"/home/human/AI-Gambler/BOVADA/Build"
 	],
 	"file_history":
 	[
+		"/home/human/AI-Gambler/BOVADA/Build/__init__.py",
+		"/home/human/AI-Gambler/BOVADA/Build/bovada_webscraper.py",
+		"/home/human/AI-Gambler/BOVADA/Build/bovada_basketball.py",
+		"/home/human/AI-Gambler/BOVADA/Build/bovada_betting.py",
+		"/home/human/AI-Gambler/BOVADA/bovada.py",
+		"/home/human/AI-Gambler/BOVADA/Build/bot.py",
+		"/home/human/AI-Gambler/BOVADA/Build/bovada_login.py",
+		"/home/human/AI-Gambler/CONFIG/config.ini",
+		"/home/human/AI-Gambler/CONFIG/Cookies/bovada_bet.pkl",
+		"/home/human/AI-Gambler/BOVADA/Build/bovada_poker.py",
+		"/home/human/AI-Gambler/BOVADA/__init__.py",
+		"/home/human/AI-Gambler/BOVADA/bovada_webscrap.py",
+		"/home/human/AI-Gambler/BOVADA/bovada_basketball.py",
+		"/home/human/AI-Gambler/BOVADA/bovada_poker.py",
+		"/home/human/AI-Gambler/BOVADA/poker.py",
+		"/home/human/AI-Gambler/BOVADA/bovada_betting.py",
+		"/home/human/AI-Gambler/BOVADA/bovada_login.py",
+		"/home/human/AI-Gambler/BOVADA/bot.py",
+		"/home/human/AI-Gambler/test.py",
+		"/home/human/AI-Gambler/BOVADA/login.py",
+		"/home/human/AI-Gambler/bovada.py",
+		"/home/human/AI-Gambler/CONFIG/Cookies/bovada_login.pkl",
+		"/home/human/AI-Gambler/BOVADA/betting.py",
+		"/home/human/AI-Gambler/BOVADA/test.py",
 		"/home/human/AI-Gambler/BUILD/bovada.py",
 		"/home/human/AI-Gambler/BUILD/Bot/bot.py",
 		"/home/human/AI-Gambler/BUILD/bovada_poker.py",
 		"/home/human/AI-Gambler/BUILD/bovada_login.py",
 		"/home/human/AI-Gambler/BUILD/Bot/driver.py",
-		"/home/human/AI-Gambler/test.py",
-		"/home/human/AI-Gambler/CONFIG/config.ini",
 		"/home/human/AI-Gambler/CONFIG/Cookies/cookies.pkl",
 		"/home/human/AI-Gambler/BUILD/Bot/__init__.py",
 		"/home/human/AI-Gambler/BUILD/Bot/tools.py",
@@ -252,29 +266,7 @@
 		"/home/human/LIFE/Life-Companion/root/Day_Controller.py",
 		"/home/human/LIFE/Life-Companion/root/Day/Day.py",
 		"/home/human/LIFE/Life-Companion/root/Database/db.py",
-		"/home/human/LIFE/Life-Companion/root/Day/Focus.py",
-		"/home/human/LIFE/Life-Companion/root/Database/DB_Controller.py",
-		"/home/human/LIFE/Life-Companion/root/db.py",
-		"/home/human/LIFE/Life-Companion/root/Day/Routines.py",
-		"/home/human/LIFE/Life-Companion/root/Day/Workout.py",
-		"/home/human/LIFE/Life-Companion/root/Day/Activities.py",
-		"/home/human/LIFE/Life-Companion/root/Utilities/misc.py",
-		"/home/human/LIFE/Life-Companion/root/Utilities.py",
-		"/home/human/LIFE/Life-Companion/root/misc.py",
-		"/home/human/LIFE/Life-Companion/root/Controller.py",
-		"/home/human/LIFE/Life-Companion/root/overview_doc.py",
-		"/home/human/LIFE/Life-Companion/root/questions.py",
-		"/home/human/LIFE/Life-Companion/root/terminal.py",
-		"/home/human/LIFE/Life-Companion/root/Day.py",
-		"/home/human/LIFE/Life-Companion/root/write.py",
-		"/home/human/LIFE/Life-Companion/root/read.py",
-		"/usr/bin/xscreensaver",
-		"/usr/bin/gnome-screensaver-command",
-		"/home/human/Machine-Learning/SRC/run.py",
-		"/home/human/Machine-Learning/SRC/dqn_keras.py",
-		"/home/human/Machine-Learning/z-Extras/ALPHA/Snake/Brain/brain.py",
-		"/home/human/Machine-Learning/Test/run.py",
-		"/home/human/Machine-Learning/Test/dqn_keras.py"
+		"/home/human/LIFE/Life-Companion/root/Day/Focus.py"
 	],
 	"find":
 	{
@@ -309,67 +301,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/home/human/AI-Gambler/BOVADA/login.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1833,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								231,
-								231
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/home/human/AI-Gambler/BOVADA/basketball.py",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 2183,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		},
 		{
@@ -406,7 +339,7 @@
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.371648900113,
 			1.0
 		],
 		"rows":
@@ -458,7 +391,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
@@ -466,7 +399,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 202.0,
+	"side_bar_width": 246.0,
 	"status_bar_visible": false,
 	"template_settings":
 	{

@@ -17,6 +17,7 @@ def End_Test(Bot):
 	quit()
 
 
+
 def Make_Test(Bot):
 	try:
 		#Bet
@@ -36,7 +37,7 @@ def Make_Test(Bot):
 def Test_Run(Bot):
 	Bovada_Quick_Login(Bot)
 	Nav_to_Basketball_Page(Bot)
-	Scrape_Live_Games(Bot)
+	Create_Future_Games_List(Bot)
 	End_Test(Bot)
 
 

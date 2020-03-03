@@ -60,6 +60,7 @@ def Click_Show_All(Bot):
 		return False
 
 
+
 def Nav_to_Basketball_Page(Bot):
 	try:
 		#Access Site
@@ -76,9 +77,13 @@ def Nav_to_Basketball_Page(Bot):
 
 		#Select League 
 		Select_League(Bot)
+
+		#Return
+		return True
 	except:
 		print("[ERROR]: Unable to Nav_to_Basketball_Page")
 		return False
+
 
 
 

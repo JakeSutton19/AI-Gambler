@@ -21,98 +21,138 @@ def Scrape_Page(Bot):
 		# 	grouped_events.append(rows)
 
 		print(len(data_table))
+
+		#Return
 		return True
 	except:
-		print("[ERROR]: Unable to Scrape Page")
+		print("[ERROR]: Unable to Scrape_Page")
 		return False
 
 
 def Grab_Scores(Scores, data_dict):
-	#Find Scores
-	all_scores = []
-	for items1 in Scores.findAll('span', class_="score-nr"): # S1 = H, S2 = A
-		all_scores.append(items1.get_text())
+	try:
+		#Find Scores
+		all_scores = []
+		for items1 in Scores.findAll('span', class_="score-nr"): # S1 = H, S2 = A
+			all_scores.append(items1.get_text())
 
-	#Find Time
-	all_times = []
-	for items2 in Scores.findAll('span', class_="gs"): # T1 = Quarter, T2 = Time
-		all_times.append(items2.get_text())
+		#Find Time
+		all_times = []
+		for items2 in Scores.findAll('span', class_="gs"): # T1 = Quarter, T2 = Time
+			all_times.append(items2.get_text())
 
-	#Update
-	data_dict['Top'] = all_scores[0]
-	data_dict['Bottom'] = all_scores[1]
-	data_dict['Quarter'] = all_times[0]
-	data_dict['Time'] = all_times[1]
+		#Update
+		data_dict['Top'] = all_scores[0]
+		data_dict['Bottom'] = all_scores[1]
+		data_dict['Quarter'] = all_times[0]
+		data_dict['Time'] = all_times[1]
 
-	#Ship Data
-	return data_dict
+		#Ship Data
+		return data_dict
+	except:
+		print("[ERROR]: Unable to Grab_Scores")
+		return False
 
 
 def Grab_Teams(Teams, data_dict):
-	#Find Teams
-	all_teams = []
-	for items1 in Teams.findAll('span', class_="name"): # S1 = H, S2 = A
-		all_teams.append(items1.get_text())
+	try:
+		#Find Teams
+		all_teams = []
+		for items1 in Teams.findAll('span', class_="name"): # S1 = H, S2 = A
+			all_teams.append(items1.get_text())
 
-	#Update
-	data_dict['Top Team'] = all_teams[0]
-	data_dict['Bottom Team'] = all_teams[1]
+		#Update
+		data_dict['Top Team'] = all_teams[0]
+		data_dict['Bottom Team'] = all_teams[1]
 
-	#Ship Data
-	return data_dict
+		#Ship Data
+		return data_dict
+	except:
+		print("[ERROR]: Unable to Grab_Teams")
+		return False
 
 
 def Grab_Outcomes(Outcomes, data_dict):
-	#Find Outcomes
-	all_outs = []
-	for items1 in Outcomes.findAll('span', class_="market-line bet-handicap both-handicaps"): # S2 = O, S4 = U
-		all_outs.append(items1.get_text())
+	try:
+		#Find Outcomes
+		all_outs = []
+		for items1 in Outcomes.findAll('span', class_="market-line bet-handicap both-handicaps"): # S2 = O, S4 = U
+			all_outs.append(items1.get_text())
 
-	#Update
-	data_dict['Over'] = all_outs[1]
-	data_dict['Under'] = all_outs[3]
+		#Update
+		data_dict['Over'] = all_outs[1]
+		data_dict['Under'] = all_outs[3]
 
-	#Ship Data
-	return data_dict
+		#Ship Data
+		return data_dict
+	except:
+		print("[ERROR]: Unable to Grab_Outcomes")
+		return False
 
 
-def Create_Game(game):
-	#Create data dict
-	data_dict = {}
+def Create_Live_Games_List(Bot):
+	try:
+		#Initialize
+		input("Press [Enter] to run scrape.")
 
-	#Find Scores in Game
-	for score in game.findAll('sp-score-coupon', class_="scores"):
-		data_dict = Grab_Scores(score, data_dict)
+		#Isolate Live Games
+		Live_Games = []
+		soup = BeautifulSoup(Bot.Driver.page_source, 'html.parser')
+		Live_Container = soup.find('div', class_="happening-now-bucket") 
+
+		#Identify individual Games
+		for game in Live_Container.findAll('section', class_="coupon-content more-info"):
+			#Create data dict
+			data_dict = {}
+
+			for score in game.findAll('sp-score-coupon', class_="scores"): #Find Scores in Game
+				data_dict = Grab_Scores(score, data_dict)
+			
+			for teams in game.findAll('header', class_="event-title"): #Find Teams in Game
+				data_dict = Grab_Teams(teams, data_dict)
 		
-	#Find Teams in Game
-	for teams in game.findAll('header', class_="event-title"):
-		data_dict = Grab_Teams(teams, data_dict)
+			for outs in game.findAll('sp-outcomes', class_="markets-container"): #Find Outcomes in Game
+				data_dict = Grab_Outcomes(outs, data_dict)
 
-	#Find Outcomes in Game
-	for outs in game.findAll('sp-outcomes', class_="markets-container"):
-		data_dict = Grab_Outcomes(outs, data_dict)
-
-	#Return Data
-	return data_dict
-
-
-def Scrape_Live_Games(Bot):
-	#Initialize
-	input("Press [Enter] to run scrape.")
-
-	#Params
-	Live_Games = []
-	soup = BeautifulSoup(Bot.Driver.page_source, 'html.parser')
-		
-	#Isolate Live Games
-	# hn_bucket = soup.find('div', class_="happening-now-bucket") 
-
-	#Identify individual Games
-	for game in hn_bucket.findAll('section', class_="coupon-content more-info"):
-		d = Create_Game(game)
-		Live_Games.append(d)
-		
-	#Return Games Info
-	return Live_Games
+			#Save Data
+			Live_Games.append(data_dict)
+			
+		#Return Games Info
+		print(Live_Games)
+		return Live_Games
+	except:
+		print("[ERROR]: Unable to Create_Live_Games_List")
+		return False
 	
+
+def Create_Future_Games_List(Bot):
+	try:
+		#Initialize
+		input("Press [Enter] to run scrape.")
+
+		#Isolate Future Games
+		Live_Games = []
+		soup = BeautifulSoup(Bot.Driver.page_source, 'html.parser')
+		Future_Container = soup.find('div', class_="next-events-bucket") 
+
+		#Identify individual Games
+		for game in Future_Container.findAll('section', class_="coupon-content more-info"):
+			#Create data dict
+			data_dict = {}
+				
+			for teams in game.findAll('header', class_="event-title"): #Find Teams in Game
+				data_dict = Grab_Teams(teams, data_dict)
+			
+			for outs in game.findAll('sp-outcomes', class_="markets-container"): #Find Outcomes in Game
+				data_dict = Grab_Outcomes(outs, data_dict)
+
+			#Return Data
+			Live_Games.append(data_dict)
+				
+		#Return Games Info
+		print(Live_Games)
+		return Live_Games
+	except:
+		print("[ERROR]: Unable to Create_Future_Games_List")
+		return False
 	

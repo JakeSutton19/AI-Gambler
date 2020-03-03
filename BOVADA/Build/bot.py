@@ -52,12 +52,14 @@ class Bot:
 		Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_2']) # Maximize
 		Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_3']) # No sandbox
 		# Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_4']) # Incognito
+		# Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_5']) # Headless
 		Driver_Options.add_argument(self.Config_Options['OPTIONS']['OPTION_6']) # No notifications
 		Driver_Options.add_experimental_option("excludeSwitches",["ignore-certificate-errors"])
 
 		#Initialize Web Driver
-		self.Driver = webdriver.Chrome(chrome_options=Driver_Options, 
-			executable_path=self.Config_Options['ENVIRONMENT']['CHROMEDRIVER_PATH'])
+		self.Driver = webdriver.Chrome(options=Driver_Options, 
+			executable_path=self.Config_Options['ENVIRONMENT']['CHROMEDRIVER_PATH'],
+			service_log_path=self.Config_Options['LOG']['SERVICE_LOG_PATH'])
 
 		#Driver Waits
 		self.Driver.implicitly_wait(10)
