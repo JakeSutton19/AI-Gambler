@@ -26,72 +26,65 @@ class Bovada_Controller:
 
 
 
-	def Setup(self):
-		#Create Bot
-		self.Bot = Bot()
 
-		#LogIn to Bovada
-		try:
-			Bovada_Quick_Login(self.Bot)
-			self.login_successful = True
-		except:
-			print("[ERROR]: Unable to Bovada_Quick_Login. Attempt Manual Login")
-			self.login_successful = False
+def Run(Bot):
+	#Status
+	bet_count = 0
 
+	#Setup
+	Bovada_Quick_Login(Bot) #Login 
+	Nav_to_Basketball_Page(Bot) #Go to Basketball Page
 
-		#Go to Basketball Page
-		try:
-			Nav_to_Basketball_Page(self.Bot)
-			self.Nav_successful = True
-		except:
-			print("[ERROR]: Unable to Nav_to_Basketball_Page.")
-			self.Nav_successful = False
+	#Data Collecting
+	schedule = Create_Future_Games_List(Bot) 
 
+	#Create Future Game List
+	Create_Future_Games_CSV(Bot, schedule)
 
-		#Scrape Live Games
-		try:
-			live_games = Create_Live_Games_List(self.Bot)
-			self.Scrape_Live = True
-		except:
-			print("[ERROR]: Unable to Create_Live_Games_List.")
-			self.Scrape_Live = False
+	#Store Initial Values and create what to Compare
+	Init_Games_DF = Read_Future_Games_CSV(Bot)
 
+	#Monitor Games
+	while 1:
+		#Index
+		index = 0
 
-		#Check Data Status
-		if (self.Scrape_Live == False):
-			try:
-				#Scrape Future Data
-				future_games = Create_Future_Games_List(self.Bot)
-				self.Scrape_Future = True
-			except:
-				print("[ERROR]: Unable to Create_Future_Games_List.")
-				self.Scrape_Future = False
-			#Create CSV
-			try:
-				Create_Future_Games_CSV(self.Bot, future_games)
-			except:
-				print("[ERROR]: Unable to Create_Future_Games_CSV.")
-		else:
-			#Create CSV
-			try:
-				Create_Live_Games_CSV(self.Bot, live_games)
-			except:
-				print("[ERROR]: Unable to Create_Live_Games_CSV.")
-			
+		#Pull latest data
+		update = Create_Future_Games_List(Bot)
+		update_df = Create_DF(update)
 
+		#Look at each game O/U
+		for games in len(update_df):
+
+			#Make bet if better than "rule of 7"
+			if ((float(Init_Games_DF["Over_Bet"][index]) - float(update_df["Over"][index])) < -1):
+				Select_Over_Under(Bot, (index + 1), 'over')
+				Input_Bet(Bot, 1)
+				Click_Submit_Button(Bot)
+				bet_count += 0
+				break
+
+				#Make bet if better than reverse "rule of 7"
+			elif ((float(Init_Games_DF["Under_Bet"][index]) - float(update_df["Under"][index])) > -1):
+				Select_Over_Under(Bot, (index + 1), 'under')
+				Input_Bet(Bot, 1)
+				Click_Submit_Button(Bot)
+				bet_count += 0
+				break
+
+			#Increase Index
+			index += 1
+
+		#Store Results?
+		
 
 
-def Test_Run(Bot):
-	# Bovada_Quick_Login(Bot)
-	# Nav_to_Basketball_Page(Bot)
-	# games = Create_Future_Games_List(Bot)
-	data = Read_Future_Games_CSV(Bot)
-	print(data["Over"][1])
+	#End
 	End_Test(Bot)
 
 
 Bovada = Bot()
-Test_Run(Bovada)
+Run(Bovada)
 
 
 

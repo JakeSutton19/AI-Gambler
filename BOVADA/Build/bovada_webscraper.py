@@ -29,6 +29,23 @@ def Scrape_Page(Bot):
 		return False
 
 
+def Grab_Future_Time(Scores, data_dict):
+	try:
+		#Find Time
+		all_times = []
+		for items2 in Scores.findAll('time', class_="clock"): # T1 = Quarter, T2 = Time
+			all_times.append(items2.get_text())
+
+		#Update
+		data_dict['Start_Time'] = all_times[0]
+
+		#Ship Data
+		return data_dict
+	except:
+		print("[ERROR]: Unable to Grab_Scores")
+		return False
+
+
 def Grab_Scores(Scores, data_dict):
 	try:
 		#Find Scores
@@ -83,6 +100,10 @@ def Grab_Outcomes(Outcomes, data_dict):
 		data_dict['Over'] = all_outs[1]
 		data_dict['Under'] = all_outs[3]
 
+		#Create Mock Values to Look for
+		data_dict['Over_Bet'] = float(all_outs[1]) + 7
+		data_dict['Under_Bet'] = float(all_outs[3]) - 7
+
 		#Ship Data
 		return data_dict
 	except:
@@ -130,7 +151,7 @@ def Create_Future_Games_List(Bot):
 		# input("Press [Enter] to run scrape.")
 
 		#Isolate Future Games
-		Live_Games = []
+		Future_Games = []
 		soup = BeautifulSoup(Bot.Driver.page_source, 'html.parser')
 		Future_Container = soup.find('div', class_="next-events-bucket") 
 
@@ -138,6 +159,9 @@ def Create_Future_Games_List(Bot):
 		for game in Future_Container.findAll('section', class_="coupon-content more-info"):
 			#Create data dict
 			data_dict = {}
+
+			for score in game.findAll('sp-score-coupon', class_="scores"): #Find Start Time in Game
+				data_dict = Grab_Future_Time(score, data_dict)
 				
 			for teams in game.findAll('header', class_="event-title"): #Find Teams in Game
 				data_dict = Grab_Teams(teams, data_dict)
@@ -146,10 +170,10 @@ def Create_Future_Games_List(Bot):
 				data_dict = Grab_Outcomes(outs, data_dict)
 
 			#Return Data
-			Live_Games.append(data_dict)
+			Future_Games.append(data_dict)
 				
 		#Return Games Info
-		return Live_Games
+		return Future_Games
 	except:
 		print("[ERROR]: Unable to Create_Future_Games_List")
 		return False

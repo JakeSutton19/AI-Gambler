@@ -18,4 +18,6 @@ Create_Future_Games_List
 
 #Bovada
 from .bovada_data_analysis import Create_Future_Games_CSV, Read_Future_Games_CSV, Create_Live_Games_CSV, \
-Read_Live_Games_CSV
+Read_Live_Games_CSV, Create_DF
+
+from .bovada_game import Bovada_Future_Game
