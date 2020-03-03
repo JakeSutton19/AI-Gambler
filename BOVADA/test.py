@@ -1,4 +1,2 @@
-from BUILD.bovada import Bovada_Bot
+from BOVADA.bovada import *
 
-a = Bovada_Bot()
-a.Run()
