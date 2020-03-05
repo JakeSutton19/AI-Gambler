@@ -1,23 +1,49 @@
-#Imports Bot
-from .bot import Bot
-from .tools import Configure_From_File, End_Test
+#Bovada Build Imports 
 
-#Bovada
+# Bot
+from .bot import Bot
+
+# Tools
+from .tools import Configure_From_File, End_Test, Info_Message, Error_Message
+
+# Login
 from .bovada_login import Bovada_Setup_Login, Bovada_Quick_Login
 
-from .bovada_basketball import Nav_to_Basketball_Page, Click_Dropdown_Box, Select_League_Dropbox, Select_League, \
-Click_Quarter_Lines, Click_Show_All
+#--------------------------------------------------------------------- Functions ---------------------------------------------------------------------#
+#Returns Bot
+def Create_Bot():
+	try:
+		#Create the Bot
+		bot = Bot()
+		return bot
+	except Error as e:
+		print(e)
+		Error_Message("Create_Bot failed.")
+		return False
 
-from .bovada_betting import Clear_Selection_Button, Click_Bet_Button, Input_Bet, Click_Submit_Button, Make_Bet, \
-Select_Over_Under
+#Login
+def Bovada_Login(Bot):
+	#Login to Bovada
+	try:
+		login_status = Bovada_Quick_Login(Bot) #Login 
+	except Error as e:
+		print(e)
+		Error_Message("Quick login failed.")
 
-from .bovada_poker import Poker_Cash_Game_Setup_PracticeMode, Poker_Cash_Game_Setup_Live
+	#If Unsuccesfull
+	if (login_status == False):
+		Info_Message('Attempting manual login..')
 
-from .bovada_webscraper import GetSoup, Scrape_Page, Grab_Scores, Grab_Teams, Grab_Outcomes, Create_Live_Games_List, \
-Create_Future_Games_List
+		#Re attempt Login
+		try:
+			login_status = Bovada_Setup_Login(Bot) #Login 
+		except Error as e:
+			print(e)
+			Error_Message("Manual login failed. Shutting Down.")
+			Error_Quit(Bot)
 
-#Bovada
-from .bovada_data_analysis import Create_Future_Games_CSV, Read_Future_Games_CSV, Create_Live_Games_CSV, \
-Read_Live_Games_CSV, Create_DF
-
-from .bovada_game import Bovada_Future_Game
+		#Return Status
+		return login_status
+	#Successful
+	else:
+		return True

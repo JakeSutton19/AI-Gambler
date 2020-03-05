@@ -1,93 +1,48 @@
+# Bovada Bot 
+# - written by Jacob Sutton
+
+
+#--------------------------------------------------------------------- IMPORTS ---------------------------------------------------------------------#
 #Imports (General)
 import time
 
-#Imports (Build)
-from Build.__init__ import *
+#Bovada Imports
+from .Build.__init__ import *
+from .Betting.__init__ import *
+from .Database.__init__ import *
+from .Poker.__init__ import *
+from .Setup.__init__ import *
 
 
 
 
-class Bovada_Controller:
-	def __init__(self, Bot):
-		#Initialize
-		self.Bot = Bot
 
+
+
+
+#Bovada Controller
+class Controller:
+	def __init__(self):
 		#Status
-		self.login_successful = None
-		self.Nav_successful = None
-		self.Scrape_Live = None
-		self.Scrape_Future = None
+		self.create_bot = None
+		self.bovada_login = None
+
+	#1. Setup
+	def Setup(self):
+		self.bovada_login = Bovada_Login(self.Bot)
 
 
-	def Game_Monitoring(self):
-		if (self.Scrape_Live == False):
-			data_df = Read_Future_Games_CSV(self.Bot)
+#Bovada 
+def Bovada:
+	#Create bot
 
 
 
 
-
-def Run(Bot):
-	#Status
-	bet_count = 0
-
-	#Setup
-	Bovada_Quick_Login(Bot) #Login 
-	Nav_to_Basketball_Page(Bot) #Go to Basketball Page
-
-	#Data Collecting
-	schedule = Create_Future_Games_List(Bot) 
-
-	#Create Future Game List
-	Create_Future_Games_CSV(Bot, schedule)
-
-	#Store Initial Values and create what to Compare
-	Init_Games_DF = Read_Future_Games_CSV(Bot)
-
-	#Monitor Games
-	while 1:
-		#Index
-		index = 0
-
-		#Pull latest data
-		update = Create_Future_Games_List(Bot)
-		update_df = Create_DF(update)
-
-		#Look at each game O/U
-		for games in len(update_df):
-
-			#Make bet if better than "rule of 7"
-			if ((float(Init_Games_DF["Over_Bet"][index]) - float(update_df["Over"][index])) < -1):
-				Select_Over_Under(Bot, (index + 1), 'over')
-				Input_Bet(Bot, 1)
-				Click_Submit_Button(Bot)
-				bet_count += 0
-				break
-
-				#Make bet if better than reverse "rule of 7"
-			elif ((float(Init_Games_DF["Under_Bet"][index]) - float(update_df["Under"][index])) > -1):
-				Select_Over_Under(Bot, (index + 1), 'under')
-				Input_Bet(Bot, 1)
-				Click_Submit_Button(Bot)
-				bet_count += 0
-				break
-
-			#Increase Index
-			index += 1
-
-		#Store Results?
-		
-
+	
+def Run_Test(Bot):
+	#Access Site
+	Bot.Go_to_Site(Bot.Config_Options['BOVADA_URLS']['BASKETBALL_URL'])
 
 	#End
 	End_Test(Bot)
-
-
-Bovada = Bot()
-Run(Bovada)
-
-
-
-
-
-

@@ -5,4 +5,4 @@ A.I. Gambler is a gambling bot for various games/sports.
 - Bovada 
 
 ## Task
-- Play game of Poker
+- Gamble successfully

@@ -1,5 +1,3 @@
-#Imports Bot
-from .bot import *
 
 
 class Bovada_Future_Game:

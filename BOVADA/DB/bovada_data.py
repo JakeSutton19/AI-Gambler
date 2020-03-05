@@ -3,9 +3,6 @@ import pandas as pd
 from pandas import DataFrame
 import csv
 
-#Imports Bot
-from .bot import *
-
 #Games
 Games = []
 

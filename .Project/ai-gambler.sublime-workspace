@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"UN",
+				"Under_Bet"
+			],
+			[
+				"Ov",
+				"Over_Bet"
+			],
+			[
+				"Scra",
+				"Scrape_Live"
+			],
+			[
 				"data",
 				"data_dict"
 			],
@@ -134,23 +146,24 @@
 	"expanded_folders":
 	[
 		"/home/human/AI-Gambler",
-		"/home/human/AI-Gambler/BOVADA",
-		"/home/human/AI-Gambler/BOVADA/Build",
-		"/home/human/AI-Gambler/CONFIG"
+		"/home/human/AI-Gambler/BOVADA"
 	],
 	"file_history":
 	[
-		"/home/human/AI-Gambler/BOVADA/Build/bovada_webscraper.py",
-		"/home/human/AI-Gambler/BOVADA/Build/bovada_betting.py",
-		"/home/human/AI-Gambler/BOVADA/Build/bovada_basketball.py",
-		"/home/human/AI-Gambler/BOVADA/Build/bot.py",
 		"/home/human/AI-Gambler/BOVADA/bovada.py",
+		"/home/human/AI-Gambler/BOVADA/Build/bovada_webscraper.py",
+		"/home/human/AI-Gambler/BOVADA/Build/bovada_data_analysis.py",
 		"/home/human/AI-Gambler/BOVADA/Build/__init__.py",
+		"/home/human/AI-Gambler/BOVADA/Build/bovada_game.py",
+		"/home/human/AI-Gambler/BOVADA/Build/bot.py",
+		"/home/human/AI-Gambler/BOVADA/Build/bovada_basketball.py",
+		"/home/human/AI-Gambler/BOVADA/Build/bovada_betting.py",
 		"/home/human/AI-Gambler/CONFIG/config.ini",
+		"/home/human/AI-Gambler/BOVADA/Build/tools.py",
 		"/home/human/AI-Gambler/BOVADA/Build/bovada_login.py",
+		"/home/human/AI-Gambler/BOVADA/__init__.py",
 		"/home/human/AI-Gambler/CONFIG/Cookies/bovada_bet.pkl",
 		"/home/human/AI-Gambler/BOVADA/Build/bovada_poker.py",
-		"/home/human/AI-Gambler/BOVADA/__init__.py",
 		"/home/human/AI-Gambler/BOVADA/bovada_webscrap.py",
 		"/home/human/AI-Gambler/BOVADA/bovada_basketball.py",
 		"/home/human/AI-Gambler/BOVADA/bovada_poker.py",
@@ -264,10 +277,7 @@
 		"/home/human/LIFE/Life-Companion/root/Terminal/terminal.py",
 		"/home/human/LIFE/Life-Companion/root/Utilities/Utilities.py",
 		"/home/human/LIFE/Life-Companion/root/DB_Controller.py",
-		"/home/human/LIFE/Life-Companion/root/Day_Controller.py",
-		"/home/human/LIFE/Life-Companion/root/Day/Day.py",
-		"/home/human/LIFE/Life-Companion/root/Database/db.py",
-		"/home/human/LIFE/Life-Companion/root/Day/Focus.py"
+		"/home/human/LIFE/Life-Companion/root/Day_Controller.py"
 	],
 	"find":
 	{
@@ -340,7 +350,7 @@
 		"cols":
 		[
 			0.0,
-			0.485458538096,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -392,17 +402,33 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
+		"last_automatic_layout":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		]
 	},
 	"show_minimap": false,
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 246.0,
+	"side_bar_width": 249.0,
 	"status_bar_visible": false,
 	"template_settings":
 	{
+		"max_columns": 3
 	}
 }

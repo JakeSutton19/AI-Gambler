@@ -20,3 +20,17 @@ def End_Test(Bot):
 	time.sleep(.5)
 	print("\nSession ended.")
 	quit()
+
+
+def Info_Message(text):
+	print("[INFO]: {}".format(text))
+
+def Error_Message(text):
+	print("[ERROR]: {}".format(text))
+
+def Error_Quit(Bot):
+	time.sleep(.5)
+	Bot.Driver.quit()
+	time.sleep(.5)
+	print("\nSession ended.")
+	quit()

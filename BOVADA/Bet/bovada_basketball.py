@@ -1,5 +1,10 @@
-#Imports Bot
-from .bot import *
+#Imports (Selenium)
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.select import Select
+from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import NoSuchElementException
 
 
 def Click_Dropdown_Box(Bot):
@@ -24,10 +29,10 @@ def Select_League_Dropbox(Bot):
 		print("[ERROR]: Unable to Click_Quarter_Lines")
 		return False
 
-def Select_League(Bot):
+def Select_League(Bot, league_id): # 1:All, 2:NBA, 3:College, 4.Euroleague, 5.Eurocup, 6.WCollege, 8. Asia, 9:International
 	try:
 		league = Bot.Driver_Wait.until(EC.presence_of_element_located((By.XPATH, 
-				"/html/body/bx-site/ng-component/div/sp-sports-ui/div/main/div/section/main/sp-path-event/div/header/sp-filter/section/div[2]/sp-event-path-filter/figure/ul/li[{}]".format(4))))
+				"/html/body/bx-site/ng-component/div/sp-sports-ui/div/main/div/section/main/sp-path-event/div/header/sp-filter/section/div[2]/sp-event-path-filter/figure/ul/li[{}]".format(league_id))))
 		time.sleep(.5)
 		league.click()
 		return True
@@ -61,10 +66,10 @@ def Click_Show_All(Bot):
 
 
 
-def Nav_to_Basketball_Page(Bot):
+def Nav_to_Basketball_Page(Bot, league_id):
 	try:
 		#Access Site
-		Bot.Go_to_Site(Bot.Config_Options['BOVADA_URLS']['BASKETBALL_URL'])
+		Bot.Go_to_Site(Bot.Config_Options['BASKETBALL_URLS']['HOME'])
 
 		#Click Dropdown
 		Click_Dropdown_Box(Bot)
@@ -73,7 +78,7 @@ def Nav_to_Basketball_Page(Bot):
 		Click_Quarter_Lines(Bot)
 
 		#Select League Dropbown
-		Select_League_Dropbox(Bot)
+		Select_League_Dropbox(Bot, league_id)
 
 		#Select League 
 		Select_League(Bot)
