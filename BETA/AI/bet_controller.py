@@ -58,7 +58,7 @@ class Bet_Controller:
 			time.sleep(.5)
 			self.money = Scrape_Balance(self.Bot)
 			time.sleep(.5)
-			print('[Initial Balance]: {}'.format(self.money))
+			Info_Message('Balance = {}'.format(self.money))
 
 			# #Display Games
 			# print("\nLive Games")
