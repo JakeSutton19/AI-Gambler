@@ -122,5 +122,17 @@ def Nav_to_SK_Page(Bot):
 		print("[ERROR]: Unable to Nav_to_SK_Page")
 		return False
 
+def Nav_to_NBA_Page(Bot):
+	try:
+		#Access Site
+		Bot.Go_to_Site(Bot.Config_Options['BASKETBALL_URLS']['NBA_URL'])
+		time.sleep(2)
+
+		#Return
+		return True
+	except:
+		print("[ERROR]: Unable to Nav_to_NBA_Page")
+		return False
+
 
 

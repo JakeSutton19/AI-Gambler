@@ -45,7 +45,7 @@ def Read_Future_Games_CSV(Bot, File):
 
 def Create_Live_Games_DF(Dict):
 	try:
-		df = DataFrame(Dict,columns = ['Team1', 'Team2', 'Over', 'Over_Bet', 'Under', 'Under_Bet', 'Score1', 'Score2', 'Quarter', 'Time']) 
+		df = DataFrame(Dict,columns = ['Time', 'Quarter', 'Team1', 'Team2', 'Over', 'Over_Bet', 'Under', 'Under_Bet', 'Score1', 'Score2']) 
 
 		#Return
 		return df

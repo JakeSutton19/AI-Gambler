@@ -78,8 +78,9 @@ class Setup_Controller:
 	def Make_Schedules(self):
 		try:
 			# Create_Euroleague_Schedule(self.Bot, self.conn) #Euro
-			Create_Argentina_Schedule(self.Bot, self.conn) #Argentina
+			# Create_Argentina_Schedule(self.Bot, self.conn) #Argentina
 			# Create_SK_Schedule(self.Bot, self.conn) #Korea
+			Create_NBA_Schedule(self.Bot, self.conn) #NBA
 			return True 
 		except:
 			Error_Message("Unable to Make_Schedules")
@@ -95,21 +96,20 @@ class Setup_Controller:
 		#Connect DB
 		self.Setup_DB()
 
-		# #Setup Bovada
-		# if (self.create_bot):
-		# 	self.Setup_Bovada()
+		#Setup Bovada
+		if (self.create_bot):
+			self.Setup_Bovada()
 
-		# #Setup Basketball Monitoring
-		# if (self.bovada_login):
-		# 	self.Setup_Basketball_Home()
+		#Setup Basketball Monitoring
+		if (self.bovada_login):
+			self.Setup_Basketball_Home()
 			
-		# #Create schedules
-		# if (self.Make_Schedules()):
-		# 	Info_Message("Made schedules")
+		#Create schedules
+		self.Make_Schedules()
 
 		#Read for SQL
-		df = Sql_to_DF(self.conn, 'future_argentina_games')
-		print(df['Over'][0])
+		df1 = Sql_to_DF(self.conn, 'live_nba_games')
+		print(df1)
 		
 
 		End_Test(self.Bot)
