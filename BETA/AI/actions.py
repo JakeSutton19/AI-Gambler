@@ -29,15 +29,24 @@ def Create_Euroleague_Schedule(Bot, DB):
 
 		#Add df to DB
 		future_games_df.to_sql('future_euro_games', DB, if_exists='replace', index = True)
-
-		#Show Addidtions
-		# select_all_future_games(DB, 'future_euro_games')
-
-		#Return
-		return True 
 	except:
-		Error_Message("Unable to Create_Euroleague_Schedule")
-		return False
+		Error_Message("Unable to Future Create_Euroleague_Schedule")
+
+	try:
+		#Scrape the Page
+		live_games = Create_Live_Games_List(Bot)
+
+		#Create DF
+		live_games_df = Create_Live_Games_DF(live_games)
+
+		#Save CSV
+		Create_Live_Games_CSV(Bot, live_games_df, 'EUROLEAGUE_PATH')
+
+		#Add df to DB
+		live_games_df.to_sql('live_euro_games', DB, if_exists='replace', index = True)
+	except:
+		Error_Message("Unable to Live Create_Euroleague_Schedule")
+		
 	
 
 #Argentina Schedule
@@ -49,29 +58,34 @@ def Create_Argentina_Schedule(Bot, DB):
 
 		#Scrape the Page
 		future_games = Create_Future_Games_List(Bot)
-		# live_games = Create_Live_Games_List(Bot)
 
 		#Create DF
 		future_games_df = Create_Future_Games_DF(future_games)
-		# live_games_df = Create_Live_Games_DF(live_games)
 
-		# #Save CSV
-		# Create_Future_Games_CSV(Bot, future_games_df, 'EUROLEAGUE_PATH')
-		# Create_Live_Games_CSV(Bot, live_games_df, 'EUROLEAGUE_PATH')
-
+		#Save CSV
+		Create_Future_Games_CSV(Bot, future_games_df, 'ARGENTINA_PATH')
 
 		#Add df to DB
 		future_games_df.to_sql('future_argentina_games', DB, if_exists='replace', index = True)
-		# live_games_df.to_sql('live_argentina_games', DB, if_exists='replace', index = True)
-
-		#Show Addidtions
-		# select_all_future_games(DB, 'future_argentina_games')
-
-		#Return
-		return True
 	except:
-		Error_Message("Unable to Create_Argentina_Schedule")
-		return False
+		Error_Message("Unable to Future Create_Argentina_Schedule")
+
+	try:
+		#Scrape the Page
+		live_games = Create_Live_Games_List(Bot)
+
+		#Create DF
+		live_games_df = Create_Live_Games_DF(live_games)
+
+		#Save CSV
+		Create_Live_Games_CSV(Bot, live_games_df, 'ARGENTINA_PATH')
+
+		#Add df to DB
+		live_games_df.to_sql('live_argentina_games', DB, if_exists='replace', index = True)
+
+	except:
+		Error_Message("Unable to Live Create_Argentina_Schedule")
+	
 
 
 #South Korea Schedule
@@ -87,17 +101,30 @@ def Create_SK_Schedule(Bot, DB):
 		#Create DF
 		future_games_df = Create_Future_Games_DF(future_games)
 
+		#Save CSV
+		Create_Future_Games_CSV(Bot, future_games_df, 'SK_PATH')
+
 		#Add df to DB
 		future_games_df.to_sql('future_sk_games', DB, if_exists='replace', index = True)
-
-		#Show Addidtions
-		# select_all_future_games(DB, 'future_sk_games')
-
-		#Return
-		return True
 	except:
-		Error_Message("Unable to Create_SK_Schedule")
-		return False
+		Error_Message("Unable to Future Create_SK_Schedule")
+
+	try:
+		#Scrape the Page
+		live_games = Create_Live_Games_List(Bot)
+
+		#Create DF
+		live_games_df = Create_Live_Games_DF(live_games)
+
+		#Save CSV
+		Create_Live_Games_CSV(Bot, live_games_df, 'SK_PATH')
+
+		#Add df to DB
+		live_games_df.to_sql('live_sk_games', DB, if_exists='replace', index = True)
+	except:
+		Error_Message("Unable to Live Create_SK_Schedule")
+
+		
 
 
 #NBA Schedule
@@ -108,24 +135,30 @@ def Create_NBA_Schedule(Bot, DB):
 		time.sleep(1)
 
 		#Scrape the Page
-		# future_games = Create_Future_Games_List(Bot)
+		future_games = Create_Future_Games_List(Bot)
+
+		#Create DF
+		future_games_df = Create_Future_Games_DF(future_games)
+
+		#Save CSV
+		Create_Future_Games_CSV(Bot, future_games_df, 'NBA_PATH')
+
+		#Add df to DB
+		future_games_df.to_sql('future_nba_games', DB, if_exists='replace', index = True)
+	except:
+		Error_Message("Unable to Future Create_NBA_Schedule")
+
+	try:
+		#Scrape the Page
 		live_games = Create_Live_Games_List(Bot)
 
 		#Create DF
-		# future_games_df = Create_Future_Games_DF(future_games)
 		live_games_df = Create_Live_Games_DF(live_games)
 
 		#Save CSV
-		# Create_Future_Games_CSV(Bot, future_games_df, 'NBA_PATH')
 		Create_Live_Games_CSV(Bot, live_games_df, 'NBA_PATH')
 
-
 		#Add df to DB
-		# future_games_df.to_sql('future_nba_games', DB, if_exists='replace', index = True)
 		live_games_df.to_sql('live_nba_games', DB, if_exists='replace', index = True)
-
-		#Return
-		return True
 	except:
-		Error_Message("Unable to Create_NBA_Schedule")
-		return False
+		Error_Message("Unable to Live Create_NBA_Schedule")

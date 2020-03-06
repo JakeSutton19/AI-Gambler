@@ -47,9 +47,6 @@ class Setup_Controller:
 		#Connect to DB
 		self.conn = Bovada_DB(self.db_path)
 
-		# #Create Tables
-		# create_future_games_table(self.conn)
-
 
 	#Setup Bovada home
 	def Setup_Bovada(self):
@@ -77,9 +74,9 @@ class Setup_Controller:
 	#Create Game Schedules
 	def Make_Schedules(self):
 		try:
-			# Create_Euroleague_Schedule(self.Bot, self.conn) #Euro
-			# Create_Argentina_Schedule(self.Bot, self.conn) #Argentina
-			# Create_SK_Schedule(self.Bot, self.conn) #Korea
+			Create_Euroleague_Schedule(self.Bot, self.conn) #Euro
+			Create_Argentina_Schedule(self.Bot, self.conn) #Argentina
+			Create_SK_Schedule(self.Bot, self.conn) #Korea
 			Create_NBA_Schedule(self.Bot, self.conn) #NBA
 			return True 
 		except:
@@ -108,7 +105,7 @@ class Setup_Controller:
 		self.Make_Schedules()
 
 		#Read for SQL
-		df1 = Sql_to_DF(self.conn, 'live_nba_games')
+		df1 = Sql_to_DF(self.conn, 'future_sk_games')
 		print(df1)
 		
 
