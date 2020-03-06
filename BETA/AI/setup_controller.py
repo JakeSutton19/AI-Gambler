@@ -27,11 +27,19 @@ class Setup_Controller:
 		#Data
 		self.success_scrape = None
 		self.create_schedule = None
-		self.schedule = None
+		self.schedules = None
+		self.live_error_count = 0
+		self.future_error_count = 0
 
 		#DB
 		self.conn = None
 		self.db_path = '/home/human/AI-Gambler/CONFIG/Data/Databases/test.db'
+
+		#Tags
+		self.euro_tag = None
+		self.Argentina_tag = None
+		self.sk_tag = None
+		self.NBA_tag = None
 		
 
 	#Setup the Bot
@@ -73,20 +81,26 @@ class Setup_Controller:
 
 	#Create Game Schedules
 	def Make_Schedules(self):
+		Info_Message("Generating schedules...")
 		try:
-			Create_Euroleague_Schedule(self.Bot, self.conn) #Euro
-			Create_Argentina_Schedule(self.Bot, self.conn) #Argentina
-			Create_SK_Schedule(self.Bot, self.conn) #Korea
-			Create_NBA_Schedule(self.Bot, self.conn) #NBA
-			return True 
+			self.live_error_count, self.future_error_count, self.euro_tag = Create_Euroleague_Schedule(self.Bot, self.conn, self.live_error_count, self.future_error_count) #Euro
+			self.live_error_count, self.future_error_count, self.Argentina_tag = Create_Argentina_Schedule(self.Bot, self.conn, self.live_error_count, self.future_error_count) #Argentina
+			self.live_error_count, self.future_error_count, self.sk_tag = Create_SK_Schedule(self.Bot, self.conn, self.live_error_count, self.future_error_count) #Korea
+			self.live_error_count, self.future_error_count, self.NBA_tag = Create_NBA_Schedule(self.Bot, self.conn, self.live_error_count, self.future_error_count) #NBA
+
+			#Handle Tables
+			live_count = 4 - self.live_error_count
+			future_count = 4 - self.future_error_count
+
+			#Show Counts
+			Info_Message("Future Schedules: {}, Live Schedules: {}".format(future_count, live_count))
+			return True
 		except:
 			Error_Message("Unable to Make_Schedules")
 			return False
 
-	
 
-
-	def Run(self):
+	def Setup_(self):
 		#Start Bot
 		self.Setup_Bot()
 
@@ -102,11 +116,9 @@ class Setup_Controller:
 			self.Setup_Basketball_Home()
 			
 		#Create schedules
-		self.Make_Schedules()
+		if (self.bovada_basketball_home):
+			self.Make_Schedules()
 
-		#Read for SQL
-		df1 = Sql_to_DF(self.conn, 'future_sk_games')
-		print(df1)
+		#Export Details
+		return self.Bot, self.conn, self.euro_tag, self.Argentina_tag, self.sk_tag, self.NBA_tag
 		
-
-		End_Test(self.Bot)

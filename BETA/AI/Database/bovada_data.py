@@ -84,5 +84,5 @@ def Sql_to_DF(DB, game_table):
 		#Return
 		return df
 	except:
-		print("[ERROR]: Unable to Read_Live_Games_CSV")
+		print("[ERROR]: Unable to Sql_to_DF")
 		return False

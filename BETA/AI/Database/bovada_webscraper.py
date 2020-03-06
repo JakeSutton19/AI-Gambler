@@ -29,6 +29,22 @@ def Scrape_Page(Bot):
 		print("[ERROR]: Unable to Scrape_Page")
 		return False
 
+def Scrape_Balance(Bot):
+	#Get Soup
+	try:
+		all_times = []
+		soup = BeautifulSoup(Bot.Driver.page_source, 'html.parser')
+		for items1 in soup.findAll('span', class_="balance-value"): 
+			all_times.append(items1.get_text())
+
+		balance_value = all_times[0]
+
+		#Return
+		return balance_value
+	except:
+		print("[ERROR]: Unable to Scrape_Balance")
+		return False
+
 
 def Grab_Future_Time(Scores, data_dict):
 	try:
@@ -43,8 +59,7 @@ def Grab_Future_Time(Scores, data_dict):
 		#Ship Data
 		return data_dict
 	except:
-		print("[ERROR]: Unable to Grab_Scores")
-		return False
+		return data_dict
 
 
 def Grab_Scores(Scores, data_dict):
@@ -68,8 +83,7 @@ def Grab_Scores(Scores, data_dict):
 		#Ship Data
 		return data_dict
 	except:
-		print("[ERROR]: Unable to Grab_Scores")
-		return False
+		return data_dict
 
 
 def Grab_Teams(Teams, data_dict):
@@ -86,8 +100,7 @@ def Grab_Teams(Teams, data_dict):
 		#Ship Data
 		return data_dict
 	except:
-		print("[ERROR]: Unable to Grab_Teams")
-		return False
+		return data_dict
 
 
 def Grab_Outcomes(Outcomes, data_dict):

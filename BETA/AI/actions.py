@@ -12,7 +12,7 @@ from .Database.__init__ import *
 
 
 #Euroleague Schedule
-def Create_Euroleague_Schedule(Bot, DB):
+def Create_Euroleague_Schedule(Bot, DB, live_error_count, future_error_count):
 	try:
 		#Navigate to Basketball Home
 		Nav_to_Euroleague_Page(Bot)
@@ -30,7 +30,8 @@ def Create_Euroleague_Schedule(Bot, DB):
 		#Add df to DB
 		future_games_df.to_sql('future_euro_games', DB, if_exists='replace', index = True)
 	except:
-		Error_Message("Unable to Future Create_Euroleague_Schedule")
+		# Error_Message("Unable to Future Create_Euroleague_Schedule")
+		future_error_count += 1
 
 	try:
 		#Scrape the Page
@@ -44,13 +45,20 @@ def Create_Euroleague_Schedule(Bot, DB):
 
 		#Add df to DB
 		live_games_df.to_sql('live_euro_games', DB, if_exists='replace', index = True)
+
+		#Tag Live Games
+		tag = True
 	except:
-		Error_Message("Unable to Live Create_Euroleague_Schedule")
+		# Info_Message("Unable to Live Create_Euroleague_Schedule")
+		live_error_count += 1
+		tag = False
+
+	return live_error_count, future_error_count, tag
 		
 	
 
 #Argentina Schedule
-def Create_Argentina_Schedule(Bot, DB):
+def Create_Argentina_Schedule(Bot, DB, live_error_count, future_error_count):
 	try:
 		#Navigate to Basketball Home
 		Nav_to_Argentina_Page(Bot)
@@ -68,7 +76,8 @@ def Create_Argentina_Schedule(Bot, DB):
 		#Add df to DB
 		future_games_df.to_sql('future_argentina_games', DB, if_exists='replace', index = True)
 	except:
-		Error_Message("Unable to Future Create_Argentina_Schedule")
+		# Info_Message("Unable to Future Create_Argentina_Schedule")
+		future_error_count += 1
 
 	try:
 		#Scrape the Page
@@ -83,13 +92,18 @@ def Create_Argentina_Schedule(Bot, DB):
 		#Add df to DB
 		live_games_df.to_sql('live_argentina_games', DB, if_exists='replace', index = True)
 
+		#Tag Live Games
+		tag = True
 	except:
-		Error_Message("Unable to Live Create_Argentina_Schedule")
+		# Info_Message("Unable to Live Create_Argentina_Schedule")
+		live_error_count += 1
+		tag = False
 	
+	return live_error_count, future_error_count, tag
 
 
 #South Korea Schedule
-def Create_SK_Schedule(Bot, DB):
+def Create_SK_Schedule(Bot, DB, live_error_count, future_error_count):
 	try:
 		#Navigate to Basketball Home
 		Nav_to_SK_Page(Bot)
@@ -107,7 +121,8 @@ def Create_SK_Schedule(Bot, DB):
 		#Add df to DB
 		future_games_df.to_sql('future_sk_games', DB, if_exists='replace', index = True)
 	except:
-		Error_Message("Unable to Future Create_SK_Schedule")
+		# Info_Message("Unable to Future Create_SK_Schedule")
+		future_error_count += 1
 
 	try:
 		#Scrape the Page
@@ -121,14 +136,19 @@ def Create_SK_Schedule(Bot, DB):
 
 		#Add df to DB
 		live_games_df.to_sql('live_sk_games', DB, if_exists='replace', index = True)
-	except:
-		Error_Message("Unable to Live Create_SK_Schedule")
 
-		
+		#Tag Live Games
+		tag = True
+	except:
+		# Info_Message("Unable to Live Create_SK_Schedule")
+		live_error_count += 1
+		tag = False
+
+	return live_error_count, future_error_count, tag
 
 
 #NBA Schedule
-def Create_NBA_Schedule(Bot, DB):
+def Create_NBA_Schedule(Bot, DB, live_error_count, future_error_count):
 	try:
 		#Navigate to Basketball Home
 		Nav_to_NBA_Page(Bot)
@@ -146,7 +166,8 @@ def Create_NBA_Schedule(Bot, DB):
 		#Add df to DB
 		future_games_df.to_sql('future_nba_games', DB, if_exists='replace', index = True)
 	except:
-		Error_Message("Unable to Future Create_NBA_Schedule")
+		# Info_Message("Unable to Future Create_NBA_Schedule")
+		future_error_count += 1
 
 	try:
 		#Scrape the Page
@@ -160,5 +181,12 @@ def Create_NBA_Schedule(Bot, DB):
 
 		#Add df to DB
 		live_games_df.to_sql('live_nba_games', DB, if_exists='replace', index = True)
+
+		#Tag Live Games
+		tag = True
 	except:
-		Error_Message("Unable to Live Create_NBA_Schedule")
+		# Info_Message("Unable to Live Create_NBA_Schedule")
+		live_error_count += 1
+		tag = False
+
+	return live_error_count, future_error_count, tag
