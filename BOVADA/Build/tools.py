@@ -14,11 +14,11 @@ def Configure_From_File(config_file_path):
 
 def End_Test(Bot):
 	#Countdown
-	input("Press [ENTER] to end session.")
+	input("\nPress [ENTER] to end session.")
 	time.sleep(.5)
 	Bot.Driver.quit()
 	time.sleep(.5)
-	print("\nSession ended.")
+	print("Session ended.")
 	quit()
 
 

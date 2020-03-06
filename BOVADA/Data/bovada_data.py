@@ -18,12 +18,12 @@ def Create_DF(Dict):
 		return False
 
 
-def Create_Future_Games_CSV(Bot, Dict):
+def Create_Future_Games_CSV(Bot, Dict, File):
 	try:
-		df = DataFrame(Dict,columns = ['Start_Time', 'Team1', 'Team2', 'Over', 'Over_Bet', 'Under', 'Under_Bet']) 
+		df = DataFrame(Dict,columns = ['Date', 'Team1', 'Team2', 'Over', 'Over_Bet', 'Under', 'Under_Bet']) 
 		
 		#Save to CSV
-		df.to_csv (Bot.Config_Options['SAVE_DATA']['FUTURE_DATA_PATH'], index=False, header=True)
+		df.to_csv(Bot.Config_Options['FUTURE_DATA'][File], index=False, header=True)
 
 		#Return
 		return True
@@ -32,9 +32,9 @@ def Create_Future_Games_CSV(Bot, Dict):
 		return False
 
 
-def Read_Future_Games_CSV(Bot):
+def Read_Future_Games_CSV(Bot, File):
 	try:
-		df = pd.read_csv(Bot.Config_Options['SAVE_DATA']['FUTURE_DATA_PATH'])
+		df = pd.read_csv(Bot.Config_Options['FUTURE_DATA'][File])
 
 		#Return
 		return df
@@ -44,12 +44,12 @@ def Read_Future_Games_CSV(Bot):
 
 
 
-def Create_Live_Games_CSV(Bot, Dict):
+def Create_Live_Games_CSV(Bot, Dict, File):
 	try:
 		df = DataFrame(Dict,columns = ['Team1', 'Team2', 'Over', 'Over_Bet', 'Under', 'Under_Bet', 'Score1', 'Score2', 'Quarter', 'Time']) 
 		
 		#Save to CSV
-		df.to_csv (Bot.Config_Options['SAVE_DATA']['LIVE_DATA_PATH'], index=False, header=True)
+		df.to_csv (Bot.Config_Options['LIVE_DATA'][File], index=False, header=True)
 
 		#Return
 		return True
@@ -58,9 +58,9 @@ def Create_Live_Games_CSV(Bot, Dict):
 		return False
 
 
-def Read_Live_Games_CSV(Bot):
+def Read_Live_Games_CSV(Bot, File):
 	try:
-		df = pd.read_csv(Bot.Config_Options['SAVE_DATA']['LIVE_DATA_PATH'])
+		df = pd.read_csv(Bot.Config_Options['LIVE_DATA'][File])
 
 		#Return
 		return df

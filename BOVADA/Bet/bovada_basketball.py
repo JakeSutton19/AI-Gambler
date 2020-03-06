@@ -1,3 +1,6 @@
+#Imports
+import time
+
 #Imports (Selenium)
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -66,23 +69,15 @@ def Click_Show_All(Bot):
 
 
 
-def Nav_to_Basketball_Page(Bot, league_id):
+def Nav_to_Basketball_Page(Bot):
 	try:
 		#Access Site
-		Bot.Go_to_Site(Bot.Config_Options['BASKETBALL_URLS']['HOME'])
-
-		#Click Dropdown
-		Click_Dropdown_Box(Bot)
-
-		#Click Quarter Lines
-		Click_Quarter_Lines(Bot)
-
-		#Select League Dropbown
-		Select_League_Dropbox(Bot, league_id)
-
-		#Select League 
-		Select_League(Bot)
+		Bot.Go_to_Site(Bot.Config_Options['BASKETBALL_URLS']['HOME_URL'])
 		time.sleep(2)
+
+		#Clicks
+		Click_Dropdown_Box(Bot) #Click Dropdown		
+		Click_Quarter_Lines(Bot) #Click Quarter Lines
 
 		#Return
 		return True
@@ -90,6 +85,42 @@ def Nav_to_Basketball_Page(Bot, league_id):
 		print("[ERROR]: Unable to Nav_to_Basketball_Page")
 		return False
 
+
+def Nav_to_Euroleague_Page(Bot):
+	try:
+		#Access Site
+		Bot.Go_to_Site(Bot.Config_Options['BASKETBALL_URLS']['EUROLEAUGE_URL'])
+		time.sleep(2)
+
+		#Return
+		return True
+	except:
+		print("[ERROR]: Unable to Nav_to_Euroleague_Page")
+		return False
+
+def Nav_to_Argentina_Page(Bot):
+	try:
+		#Access Site
+		Bot.Go_to_Site(Bot.Config_Options['BASKETBALL_URLS']['ARGENTINA_URL'])
+		time.sleep(2)
+
+		#Return
+		return True
+	except:
+		print("[ERROR]: Unable to Nav_to_Argentina_Page")
+		return False
+
+def Nav_to_SK_Page(Bot):
+	try:
+		#Access Site
+		Bot.Go_to_Site(Bot.Config_Options['BASKETBALL_URLS']['SOUTHKOREA_URL'])
+		time.sleep(2)
+
+		#Return
+		return True
+	except:
+		print("[ERROR]: Unable to Nav_to_SK_Page")
+		return False
 
 
 

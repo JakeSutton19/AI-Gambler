@@ -76,8 +76,37 @@ class Bot:
 	
 	#Go to site
 	def Go_to_Site(self, site):
-		time.sleep(1)
+		time.sleep(.5)
 		self.Driver.get(site)
+		time.sleep(.5)
+
+		#Check for captcha
+		# cap = self.check_for_captcha()
+		# return cap
+
+
+	# Helper function for checking for the presence of a web element.
+	def _is_element_displayed(self, elem_text, elem_type):
+		if elem_type == "class":
+			try:
+				out = self.Driver.find_element_by_class_name(elem_text).is_displayed()
+			except (NoSuchElementException, TimeoutException):
+				out = False
+		elif elem_type == "css":
+			try:
+				out = self.Driver.find_element_by_css_selector(elem_text).is_displayed()
+			except (NoSuchElementException, TimeoutException):
+				out = False
+		else:
+			raise ValueError("arg 'elem_type' must be either 'class' or 'css'")
+			return(out)
+
+
+	def check_for_captcha(self):
+		if self._is_element_displayed("captcha-container", "class"):
+			return True
+		else:
+			return False
 
 
 	def save_cookies(self, path):
