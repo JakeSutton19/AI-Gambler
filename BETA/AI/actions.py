@@ -190,3 +190,22 @@ def Create_NBA_Schedule(Bot, DB, live_error_count, future_error_count):
 		tag = False
 
 	return live_error_count, future_error_count, tag
+
+
+
+#NBA Schedule
+def Update_Live_Games_(Bot, DB, table_name):
+	try:
+		#Scrape the Page
+		live_games = Create_Live_Games_List(Bot)
+
+		#Create DF
+		live_games_df = Create_Live_Games_DF(live_games)
+
+		#Add df to DB
+		live_games_df.to_sql('{}'.format(table_name), DB, if_exists='replace', index = True)
+
+		#Tag Live Games
+		return True
+	except:
+		return False

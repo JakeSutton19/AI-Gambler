@@ -115,8 +115,8 @@ def Grab_Outcomes(Outcomes, data_dict):
 		data_dict['Under'] = all_outs[3]
 
 		#Create Mock Values to Look for
-		data_dict['Over_Bet'] = float(all_outs[1]) + 7
-		data_dict['Under_Bet'] = float(all_outs[3]) - 7
+		data_dict['Over_Bet'] = float(all_outs[1]) + 9
+		data_dict['Under_Bet'] = float(all_outs[3]) - 9
 
 		#Ship Data
 		return data_dict

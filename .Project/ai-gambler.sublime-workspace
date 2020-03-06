@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"Se",
+				"Setup_"
+			],
+			[
 				"cr",
 				"create_schedule"
 			],
@@ -165,22 +169,26 @@
 	},
 	"expanded_folders":
 	[
-		"/home/human/AI-Gambler"
+		"/home/human/AI-Gambler",
+		"/home/human/AI-Gambler/BETA"
 	],
 	"file_history":
 	[
-		"/home/human/AI-Gambler/BETA/AI/actions.py",
-		"/home/human/AI-Gambler/BETA/AI/setup_controller.py",
-		"/home/human/AI-Gambler/CONFIG/config.ini",
 		"/home/human/AI-Gambler/BETA/test.py",
-		"/home/human/AI-Gambler/BETA/AI/Bovada/bovada_basketball.py",
-		"/home/human/AI-Gambler/BETA/AI/Database/bovada_data.py",
+		"/home/human/AI-Gambler/BETA/AI/bet_controller.py",
+		"/home/human/AI-Gambler/BETA/AI/game_controller.py",
+		"/home/human/AI-Gambler/BETA/AI/setup_controller.py",
+		"/home/human/AI-Gambler/BETA/AI/Build/bot.py",
+		"/home/human/AI-Gambler/BETA/AI/__init__.py",
 		"/home/human/AI-Gambler/BETA/AI/Database/bovada_webscraper.py",
+		"/home/human/AI-Gambler/BETA/AI/Database/__init__.py",
+		"/home/human/AI-Gambler/BETA/AI/actions.py",
+		"/home/human/AI-Gambler/BETA/AI/Database/bovada_data.py",
+		"/home/human/AI-Gambler/CONFIG/config.ini",
+		"/home/human/AI-Gambler/BETA/AI/Bovada/bovada_basketball.py",
 		"/home/human/AI-Gambler/BETA/AI/Database/db.py",
 		"/home/human/AI-Gambler/CONFIG/Data/Live/NBA/nba_data.csv",
-		"/home/human/AI-Gambler/BETA/AI/Database/__init__.py",
 		"/home/human/AI-Gambler/BETA/AI/Bovada/__init__.py",
-		"/home/human/AI-Gambler/BETA/AI/__init__.py",
 		"/home/human/AI-Gambler/BETA/AI/Data/DB/db.py",
 		"/home/human/AI-Gambler/BETA/AI/Data/DB/db_tools.py",
 		"/home/human/AI-Gambler/BETA/AI/Data/DB/db_setup.py",
@@ -293,10 +301,7 @@
 		"/home/human/AI-Gambler/(Beta)/Bovada/base_bot.py",
 		"/home/human/AI-Gambler/(Beta)/toolkit.py",
 		"/home/human/AI-Gambler/(Beta)/config.ini",
-		"/home/human/AI-Gambler/(Beta)/Bovada/betting_bot.py",
-		"/home/human/AI-Gambler/(Beta)/Bovada/config.ini",
-		"/home/human/AI-Gambler/(Beta)/Bovada/BotKit/config.ini",
-		"/home/human/AI-Gambler/(Beta)/Bovada/BotKit/__init__.py"
+		"/home/human/AI-Gambler/(Beta)/Bovada/betting_bot.py"
 	],
 	"find":
 	{
@@ -334,11 +339,6 @@
 			"sheets":
 			[
 			]
-		},
-		{
-			"sheets":
-			[
-			]
 		}
 	],
 	"incremental_find":
@@ -358,18 +358,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.409021675832,
 			1.0
 		],
 		"rows":

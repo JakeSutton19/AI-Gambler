@@ -141,6 +141,9 @@ class Bet_Controller:
 
 		else:
 			Info_Message("No games to monitor.")
+			print("Closing session..")
+			time.sleep(2)
+			Error_Quit(self.Bot)
 
 
 	def Run_EUR_Monitor(self):
@@ -188,9 +191,7 @@ class Bet_Controller:
 		
 
 
-	def Run_Test(self):
+	def Run(self):
 		self.setup_status = self.Setup_()
 		self.Show_Live_Games()
 		self.Search_for_Live_Games()
-
-		End_Test(self.Bot)
