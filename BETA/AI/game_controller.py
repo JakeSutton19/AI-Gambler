@@ -29,6 +29,76 @@ class Game_Controller:
 
 		self.Games.append(game)
 
+
+	def Create_EUR_Monitor(self):
+		#Create DF
+		df = Sql_to_DF(self.conn, 'live_euro_games')
+
+		#Find Length and iterate through each row
+		for game in len(df):
+			t = df['Time'][game]
+			q = df['Quarter'][game]
+			t1 = df['Team1'][game]
+			t2 = df['Team2'][game]
+			o = df['Over'][game]
+			o_b = df['Over_Bet'][game]
+			u = df['Under'][game]
+			u_b = df['Under_Bet'][game]
+			s1 = df['Score1'][game]
+			s2 = df['Score2'][game]
+
+			#Create Game Session
+			self.Create_Game_Session(t,q,t1,t2,o,o_b,u,u_b,s1,s2)
+
+		#Return Game list
+		return self.Games
+
+	def Create_ARG_Monitor(self):
+		#Create DF
+		df = Sql_to_DF(self.conn, 'live_argentina_games')
+
+		#Find Length and iterate through each row
+		for game in len(df):
+			t = df['Time'][game]
+			q = df['Quarter'][game]
+			t1 = df['Team1'][game]
+			t2 = df['Team2'][game]
+			o = df['Over'][game]
+			o_b = df['Over_Bet'][game]
+			u = df['Under'][game]
+			u_b = df['Under_Bet'][game]
+			s1 = df['Score1'][game]
+			s2 = df['Score2'][game]
+
+			#Create Game Session
+			self.Create_Game_Session(t,q,t1,t2,o,o_b,u,u_b,s1,s2)
+
+		#Return Game list
+		return self.Games
+
+	def Create_SK_Monitor(self):
+		#Create DF
+		df = Sql_to_DF(self.conn, 'live_sk_games')
+
+		#Find Length and iterate through each row
+		for game in len(df):
+			t = df['Time'][game]
+			q = df['Quarter'][game]
+			t1 = df['Team1'][game]
+			t2 = df['Team2'][game]
+			o = df['Over'][game]
+			o_b = df['Over_Bet'][game]
+			u = df['Under'][game]
+			u_b = df['Under_Bet'][game]
+			s1 = df['Score1'][game]
+			s2 = df['Score2'][game]
+
+			#Create Game Session
+			self.Create_Game_Session(t,q,t1,t2,o,o_b,u,u_b,s1,s2)
+
+		#Return Game list
+		return self.Games
+
 	def Create_NBA_Monitor(self):
 		#Create DF
 		df = Sql_to_DF(self.conn, 'live_nba_games')
