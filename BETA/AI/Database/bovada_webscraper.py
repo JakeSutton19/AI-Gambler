@@ -155,20 +155,17 @@ def Create_Live_Games_List(Bot):
 	
 
 def Create_Future_Games_List(Bot):
-	try:
-		#Initialize
-		# input("Press [Enter] to run scrape.")
+	
+	#Isolate Future Games
+	Future_Games = []
+	soup = BeautifulSoup(Bot.Driver.page_source, 'html.parser')
+	Future_Container = soup.find('div', class_="next-events-bucket") 
 
-		#Isolate Future Games
-		Future_Games = []
-		soup = BeautifulSoup(Bot.Driver.page_source, 'html.parser')
-		Future_Container = soup.find('div', class_="next-events-bucket") 
-
-		#Identify individual Games
-		for game in Future_Container.findAll('section', class_="coupon-content more-info"):
-			#Create data dict
-			data_dict = {}
-
+	#Identify individual Games
+	for game in Future_Container.findAll('section', class_="coupon-content more-info"):
+		#Create data dict
+		data_dict = {}
+		try:
 			for score in game.findAll('sp-score-coupon', class_="scores"): #Find Start Time in Game
 				data_dict = Grab_Future_Time(score, data_dict)
 				
@@ -180,10 +177,11 @@ def Create_Future_Games_List(Bot):
 
 			#Return Data
 			Future_Games.append(data_dict)
-				
-		#Return Games Info
-		return Future_Games, True
-	except:
-		print("[ERROR]: Unable to Create_Future_Games_List")
-		return False
+		except:
+			print("[ERROR]: Unable to Create_Future_Game")
+			return False
+			
+	#Return Games Info
+	return Future_Games
+	
 	
