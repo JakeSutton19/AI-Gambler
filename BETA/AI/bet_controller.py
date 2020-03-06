@@ -5,12 +5,16 @@
 #Imports (General)
 import time
 
-# #Bovada Imports
-from .setup_controller import *
+#Bovada Imports
+from .Build.__init__ import *
+from .Bovada.__init__ import *
+from .Database.__init__ import *
+from .actions import Create_Euroleague_Schedule, Create_Argentina_Schedule, Create_SK_Schedule, Create_NBA_Schedule
+from .setup_controller import Setup_Controller
+from .game_controller import Game_Controller, Live_Game_Session
 
 
-
-class Bet_Monitor:
+class Bet_Controller:
 	def __init__(self):
 		#Bot
 		self.Bot = None
@@ -39,6 +43,10 @@ class Bet_Monitor:
 		#Betting
 		self.money = None
 
+		#NBA
+		self.nba_controller = None
+		self.live_nba_games = None
+
 
 	def Setup_(self):
 		try:
@@ -52,33 +60,33 @@ class Bet_Monitor:
 			time.sleep(.5)
 			print('[Initial Balance]: {}'.format(self.money))
 
-			#Display Games
-			print("\nLive Games")
-			print("---------------")
+			# #Display Games
+			# print("\nLive Games")
+			# print("---------------")
 
 			#Identify Live Tags
 			if (self.euro_tag):
-				print("[Euroleague]: ")
-				df = Sql_to_DF(self.conn, 'live_euro_games')
-				print(df)
+				# print("[Euroleague]: ")
+				# df = Sql_to_DF(self.conn, 'live_euro_games')
+				# print(df)
 				self.run_euro = True
 
 			if (self.Argentina_tag):
-				print("[Argentina]: ")
-				df = Sql_to_DF(self.conn, 'live_argentina_games')
-				print(df)
+				# print("[Argentina]: ")
+				# df = Sql_to_DF(self.conn, 'live_argentina_games')
+				# print(df)
 				self.run_argen = True
 
 			if (self.sk_tag):
-				print("[South Korea]: ")
-				df = Sql_to_DF(self.conn, 'live_sk_games')
-				print(df)
+				# print("[South Korea]: ")
+				# df = Sql_to_DF(self.conn, 'live_sk_games')
+				# print(df)
 				self.run_sk = True
 
 			if (self.NBA_tag):
-				print("[NBA]: ")
-				df = Sql_to_DF(self.conn, 'live_nba_games')
-				print(df)
+				# print("[NBA]: ")
+				# df = Sql_to_DF(self.conn, 'live_nba_games')
+				# print(df)
 				self.run_nba = True
 
 			#Return
@@ -104,9 +112,21 @@ class Bet_Monitor:
 		#NBA
 		elif (self.run_nba):
 			Info_Message("Starting NBA Monitoring..")
+			self.Run_NBA_Monitor()
 
 		else:
 			Info_Message("No games to monitor.")
+
+
+	def Run_NBA_Monitor(self):
+		#Create the Controller
+		self.nba_controller = Game_Controller(self.Bot, self.conn)
+
+		#Create NBA Monitor
+		self.live_nba_games = self.nba_controller.Create_NBA_Monitor()
+
+		#Return
+		print(len(self.live_nba_games))
 		
 
 
