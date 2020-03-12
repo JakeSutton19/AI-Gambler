@@ -40,7 +40,7 @@ class UI_Controller(themed_tk.ThemedTk, Controller):#inherited tk.Tk
 
 		#Frame Selection
 		self.frames={}
-		for F in (Start, Admin, Status_Page, Manual_Setup, Bovada, Bovada_Betting, Bovada_Games, Bovada_Stats):
+		for F in (Start, Admin, Status_Page, Manual_Setup, Profile, Bovada, Bovada_Betting, Bovada_Games, Bovada_Stats):
 			frame = F(container,self)
 			self.frames[F]=frame
 			frame.grid(row=0,column=0,sticky="nsew")
@@ -173,11 +173,15 @@ class Start(tk.Frame):
 		label=ttk.Label(self,text="AI Gambler - Home",font=Large_Font)
 		label.pack(pady=10,padx=10)
 
-		button1 = ttk.Button(self,text="Admin", command=lambda: controller.show_frame(Admin))
+		button = ttk.Button(self,text="Admin", command=lambda: controller.show_frame(Admin))
+		button.pack()
+
+		button1 = ttk.Button(self,text="Profile", command=lambda: controller.show_frame(Profile))
 		button1.pack()
 
 		button2=ttk.Button(self,text="Bovada",command=lambda: controller.show_frame(Bovada))
 		button2.pack()
+
 
 #
 ############## ADMIN #############
@@ -226,6 +230,23 @@ class Manual_Setup(tk.Frame):
 		button3.pack()
 
 		button = ttk.Button(self,text="Back", command=lambda: controller.show_frame(Admin))
+		button.pack()
+
+
+
+#
+############## Profile #############
+#
+
+class Profile(tk.Frame):
+	def __init__(self,parent,controller):
+		tk.Frame.__init__(self,parent)
+		label=tk.Label(self,text="AI Gambler - Profile",font=Large_Font)
+		label.pack(pady=10,padx=10)
+
+		#Bovada Setup
+		button = ttk.Button(self,text="Back", command=lambda: controller.show_frame(Start))
+
 		button.pack()
 
 
