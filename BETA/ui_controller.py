@@ -40,7 +40,7 @@ class UI_Controller(themed_tk.ThemedTk, Controller):#inherited tk.Tk
 
 		#Frame Selection
 		self.frames={}
-		for F in (Start, Admin, Status_Page, Manual_Setup, Bovada, Bovada_Betting, Bovada_Stats):
+		for F in (Start, Admin, Status_Page, Manual_Setup, Bovada, Bovada_Betting, Bovada_Games, Bovada_Stats):
 			frame = F(container,self)
 			self.frames[F]=frame
 			frame.grid(row=0,column=0,sticky="nsew")
@@ -59,7 +59,8 @@ class UI_Controller(themed_tk.ThemedTk, Controller):#inherited tk.Tk
 		try:
 			Info_Message("Starting Bovada setup..")
 			#Setup
-			self.Setup_Controller() #Setup controller
+			if (not self.created_bot):
+				self.Setup_Controller() #Setup controller
 			self.Setup_Bovada() #Setup Bovada
 			self.Setup_Live_Games() #Setup Live Games
 
@@ -85,7 +86,7 @@ class UI_Controller(themed_tk.ThemedTk, Controller):#inherited tk.Tk
 		self._toolsmenu.add_command(label="Restart", command=self.Restart_Bot)
 		self._toolsmenu.add_separator()
 		self._toolsmenu.add_command(label="Shutdown", command=self.QuitApp)
-		self._Menubar.add_cascade(label="Admin", menu=self._toolsmenu) 
+		self._Menubar.add_cascade(label="Commands", menu=self._toolsmenu) 
 
 		# Add nav menu
 		self._filemenu = tk.Menu(self._Menubar, tearoff=0)
@@ -109,10 +110,6 @@ class UI_Controller(themed_tk.ThemedTk, Controller):#inherited tk.Tk
 				self.Bot.Driver.quit()
 				self.created_bot = False
 
-			#Close DB
-			if (self.connected_DB):
-				self.conn.close()
-				self.connected_DB = False
 			Info_Message("Kill successful.")
 			return True 
 		except:
@@ -124,11 +121,9 @@ class UI_Controller(themed_tk.ThemedTk, Controller):#inherited tk.Tk
 		try:
 			#Close Bot
 			if (self.created_bot == False):
-				#Close DB
-				if (self.connected_DB == False):
-					self.Setup_Controller()
-					Info_Message("Restart successful.")
-					return True 
+				self.Setup_Controller()
+				Info_Message("Restart successful.")
+				return True 
 		except:
 			Error_Message("Unable to Reset")
 			return False
@@ -141,10 +136,6 @@ class UI_Controller(themed_tk.ThemedTk, Controller):#inherited tk.Tk
 				self.Bot.Driver.quit()
 				self.created_bot = False
 
-			#Close DB
-			if (self.connected_DB):
-				self.conn.close()
-				self.connected_DB = False
 			Info_Message("Reset successful.")
 			return True 
 		except:
@@ -249,9 +240,13 @@ class Bovada(tk.Frame):
 		button2 = ttk.Button(self,text="Actions", command=lambda: controller.show_frame(Bovada_Betting))
 		button2.pack()
 
-		#Bovada Stats
-		button3 = ttk.Button(self,text="Stats", command=lambda: controller.show_frame(Bovada_Stats))
+		#Bovada Games
+		button3 = ttk.Button(self,text="Games", command=lambda: controller.show_frame(Bovada_Games))
 		button3.pack()
+
+		#Bovada Stats
+		button4 = ttk.Button(self,text="Stats", command=lambda: controller.show_frame(Bovada_Stats))
+		button4.pack()
 
 		button = ttk.Button(self,text="Back", command=lambda: controller.show_frame(Start))
 		button.pack()
@@ -263,7 +258,7 @@ class Bovada_Betting(tk.Frame):
 		label.pack(pady=10,padx=10)
 
 		#Search Button
-		button2=ttk.Button(self,text="Search Live Games",command=lambda: controller.Search_for_Live_Games())
+		button2=ttk.Button(self,text="Search for Live Games",command=lambda: controller.Search_for_Live_Games())
 		button2.pack()
 
 		#Show Button
@@ -281,8 +276,30 @@ class Bovada_Stats(tk.Frame):
 		label=ttk.Label(self,text="Bovada - Stats",font=Large_Font)
 		label.pack(pady=10,padx=10)
 
+
 		button = ttk.Button(self,text="Back", command=lambda: controller.show_frame(Bovada))
 		button.pack()
+
+	
+class Bovada_Games(tk.Frame):
+	def __init__(self,parent,controller):
+		tk.Frame.__init__(self,parent)
+
+		df1 = Sql_to_DF(controller.conn, 'future_euro_games')
+		rows, cols = df1.shape
+		for r in range(rows):
+			for c in range(cols):
+				e = tk.Entry(self)
+				e.insert(0, df1.iloc[r,c])
+				e.grid(row=r, column=c)
+
+		df2 = Sql_to_DF(controller.conn, 'future_argentina_games')
+		rows2, cols2 = df2.shape
+		for r in range(rows2):
+			for c in range(cols2):
+				e2 = tk.Entry(self)
+				e2.insert(0, df2.iloc[r,c])
+				e2.grid(row=r+15, column=c)
 
 
 

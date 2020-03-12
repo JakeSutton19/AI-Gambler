@@ -20,7 +20,7 @@ class Controller:
 		#DB
 		self.conn = None
 		self.db_path = '/home/human/AI-Gambler/CONFIG/Data/Databases/controller.db'
-		self.connected_DB = None
+		self.connected_DB = self.Setup_DB() 
 
 		#Bovada
 		self.Bovada_Controller = None
@@ -63,7 +63,6 @@ class Controller:
 	def Setup_Controller(self):
 		try:
 			self.created_bot = self.Setup_Bot() #Bot
-			self.connected_DB = self.Setup_DB() #DB
 			return True 
 		except:
 			Error_Message("Unable to Setup_Controller")
