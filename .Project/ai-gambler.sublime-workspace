@@ -123,6 +123,32 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/home/human/AI-Gambler/BETA/setup_controller.py",
+			"settings":
+			{
+				"buffer_size": 3889,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/human/AI-Gambler/BETA/bet_controller.py",
+			"settings":
+			{
+				"buffer_size": 3470,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/human/AI-Gambler/BETA/Bovada/bovada_basketball.py",
+			"settings":
+			{
+				"buffer_size": 3642,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -161,6 +187,12 @@
 	],
 	"file_history":
 	[
+		"/home/human/AI-Gambler/test.py",
+		"/home/human/AI-Gambler/BETA/bet_controller.py",
+		"/home/human/AI-Gambler/BETA/setup_controller.py",
+		"/home/human/AI-Gambler/BETA/game_controller.py",
+		"/home/human/AI-Gambler/BETA/Database/bovada_webscraper.py",
+		"/home/human/AI-Gambler/BETA/Bovada/bovada_login.py",
 		"/home/human/Desktop/A.I/AI-Gambler/.Project/ai-gambler.sublime-project",
 		"/home/human/AI-Gambler/BOVADA/DB/bovada_db.py",
 		"/home/human/AI-Gambler/BOVADA/DB/__init__.py",
@@ -176,7 +208,6 @@
 		"/home/human/AI-Gambler/BOVADA/Database/db.py",
 		"/home/human/AI-Gambler/BOVADA/Betting/db.py",
 		"/home/human/AI-Gambler/README.md",
-		"/home/human/AI-Gambler/test.py",
 		"/home/human/AI-Gambler/BOVADA/Betting/bovada_webscraper.py",
 		"/home/human/AI-Gambler/BOVADA/Betting/bovada_basketball.py",
 		"/home/human/AI-Gambler/BOVADA/Setup/bovada_login.py",
@@ -283,12 +314,7 @@
 		"/home/human/LIFE/Life-Companion/LC/LC.py",
 		"/home/human/LIFE/Life-Companion/LC/Scripts/test.sh",
 		"/home/human/LIFE/Life-Companion/LC/test.py",
-		"/home/human/LIFE/Life-Companion/LC/Scripts/start_terminator.sh",
-		"/home/human/LIFE/Life-Companion/LC/Run/__init__.py",
-		"/home/human/LIFE/Life-Companion/LC/Run/UI_Controller.py",
-		"/home/human/LIFE/Life-Companion/LC/Run/DB_Controller.py",
-		"/home/human/LIFE/Life-Companion/LC/Run/Day_Controller.py",
-		"/home/human/LIFE/Life-Companion/LC/Command/spotify.py"
+		"/home/human/LIFE/Life-Companion/LC/Scripts/start_terminator.sh"
 	],
 	"find":
 	{
@@ -323,8 +349,96 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/home/human/AI-Gambler/BETA/setup_controller.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3889,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1917,
+								1917
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/human/AI-Gambler/BETA/bet_controller.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3470,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2914,
+								2914
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1326.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/human/AI-Gambler/BETA/Bovada/bovada_basketball.py",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 3642,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2964,
+								2964
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 780.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
 			]
 		}
 	],

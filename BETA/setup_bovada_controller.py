@@ -14,11 +14,12 @@ from .actions import Create_Euroleague_Schedule, Create_Argentina_Schedule, Crea
 
 
 #Bovada Controller
-class Setup_Controller:
-	def __init__(self):
-		#Bot
-		self.Bot = None
-		self.create_bot = None
+class Setup_Bovada_Controller:
+	def __init__(self, Bot, DB, Controller_Status):
+		#Initialize
+		self.Bot = Bot
+		self.conn = DB
+		self.controller = Controller_Status
 
 		#Bovada
 		self.bovada_login = None
@@ -35,30 +36,15 @@ class Setup_Controller:
 		self.live_error_count = 0
 		self.future_error_count = 0
 
-		#DB
-		self.conn = None
-		self.db_path = '/home/human/AI-Gambler/CONFIG/Data/Databases/test.db'
-
 		#Tags
 		self.euro_tag = None
 		self.Argentina_tag = None
 		self.sk_tag = None
 		self.NBA_tag = None
+
+		#Setup_
+		self.Setup_()
 		
-
-	#Setup the Bot
-	def Setup_Bot(self):
-		try:
-			self.Bot, self.create_bot = Create_Bot()
-			return True 
-		except:
-			Error_Message("Unable to Setup_Bot")
-			return False
-
-	def Setup_DB(self):
-		#Connect to DB
-		self.conn = Bovada_DB(self.db_path)
-
 
 	#Check login status
 	def Check_Bovada_Login(self):
@@ -69,7 +55,7 @@ class Setup_Controller:
 
 			#if balace is false, manual login
 			if (money):
-				Info_Message("Quick login successful.")
+				# Info_Message("Quick login successful.")
 				return True 
 			else:
 				Info_Message("Quick login failed. Running manual setup..")
@@ -84,7 +70,7 @@ class Setup_Controller:
 	def Setup_Bovada(self):
 		try:
 			#Login to Bovada
-			Info_Message("Setting up Bovada.")
+			# Info_Message("Setting up Bovada.")
 			self.bovada_login = Bovada_Quick_Login(self.Bot) #Login
 
 			#Check for login
@@ -92,6 +78,12 @@ class Setup_Controller:
 		except:
 			Error_Message("Unable to Setup_Bovada")
 			return False
+
+	#Setup Bovada
+	def Setup_(self):
+		#Setup Bovada
+		if (self.controller):
+			self.Setup_Bovada()
 
 
 	#Betting Monitor
@@ -125,25 +117,11 @@ class Setup_Controller:
 			Error_Message("Unable to Make_Schedules")
 			return False
 
-
-	def Setup_(self):
-		#Message
-		print("SETUP LOG")
-		print("---------")
-		Info_Message("Creating Bot.")
-
-		#Start Bot
-		self.Setup_Bot()
-
-		#Connect DB
-		self.Setup_DB()
-
-		#Setup Bovada
-		if (self.create_bot):
-			self.Setup_Bovada()
-
+	
+	#Setup BB monitoring
+	def Initialize_Basketball_Games(self):
 		#Setup Basketball Monitoring
-		if (self.bovada_login):
+		if (self.bovada_login_check):
 			self.Setup_Basketball_Home()
 			
 		#Create schedules
@@ -151,5 +129,5 @@ class Setup_Controller:
 			self.Make_Schedules()
 
 		#Export Details
-		return self.Bot, self.conn, self.euro_tag, self.Argentina_tag, self.sk_tag, self.NBA_tag
+		return self.euro_tag, self.Argentina_tag, self.sk_tag, self.NBA_tag
 		

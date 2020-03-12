@@ -2,6 +2,13 @@
 from BETA.__init__ import *
 
 
-a = Bet_Controller()
-a.Run()
 
+def Run_Terminal():
+	def run(stdscr):
+		Controller(curses, stdscr)
+
+	curses.wrapper(run)
+
+
+
+Run_Terminal()

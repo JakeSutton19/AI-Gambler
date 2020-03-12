@@ -4,7 +4,7 @@ from sqlite3 import Error
 
 
 #DB
-def Bovada_DB(DB_PATH):
+def Init_DB(DB_PATH):
 	conn = None
 	try:
 		conn = sqlite3.connect(DB_PATH)
