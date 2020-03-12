@@ -59,6 +59,9 @@ def Grab_Future_Time(Scores, data_dict):
 		#Ship Data
 		return data_dict
 	except:
+		#Update
+		data_dict['Date'] = "None"
+
 		return data_dict
 
 
@@ -83,6 +86,12 @@ def Grab_Scores(Scores, data_dict):
 		#Ship Data
 		return data_dict
 	except:
+		#Update
+		data_dict['Score1'] = 0
+		data_dict['Score2'] = 0
+		data_dict['Quarter'] = 'None'
+		data_dict['Time'] = 'None'
+
 		return data_dict
 
 
@@ -131,6 +140,40 @@ def Grab_Outcomes(Outcomes, data_dict):
 
 		#Ship Data
 		return data_dict
+
+
+def Create_Games_List(Bot):
+	
+	#Initialize
+	# input("Press [Enter] to run scrape.")
+
+	#Isolate Live Games
+	Live_Games = []
+	soup = BeautifulSoup(Bot.Driver.page_source, 'html.parser')
+	# Live_Container = soup.find('div', class_="happening-now-bucket") 
+
+	#Identify individual Games
+	for game in soup.findAll('section', class_="coupon-content more-info"):
+		#Create data dict
+		data_dict = {}
+		try:
+			for score in game.findAll('sp-score-coupon', class_="scores"): #Find Scores in Game
+				data_dict = Grab_Scores(score, data_dict)
+				data_dict = Grab_Future_Time(score, data_dict)
+			
+			for teams in game.findAll('header', class_="event-title"): #Find Teams in Game
+				data_dict = Grab_Teams(teams, data_dict)
+		
+			for outs in game.findAll('sp-outcomes', class_="markets-container"): #Find Outcomes in Game
+				data_dict = Grab_Outcomes(outs, data_dict)
+		
+			#Save Data
+			Live_Games.append(data_dict)
+		except:
+			print("[ERROR]: Unable to Create_Live_Game")
+		
+	#Return Games Info
+	return Live_Games
 
 
 def Create_Live_Games_List(Bot):

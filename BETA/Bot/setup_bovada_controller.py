@@ -101,14 +101,18 @@ class Setup_Bovada_Controller:
 	#Create Game Schedules
 	def Make_Schedules(self):
 		try:
-			self.live_error_count, self.future_error_count, self.euro_tag = Create_Euroleague_Schedule(self.Bot, self.conn, self.live_error_count, self.future_error_count) #Euro
-			self.live_error_count, self.future_error_count, self.Argentina_tag = Create_Argentina_Schedule(self.Bot, self.conn, self.live_error_count, self.future_error_count) #Argentina
-			self.live_error_count, self.future_error_count, self.sk_tag = Create_SK_Schedule(self.Bot, self.conn, self.live_error_count, self.future_error_count) #Korea
-			self.live_error_count, self.future_error_count, self.NBA_tag = Create_NBA_Schedule(self.Bot, self.conn, self.live_error_count, self.future_error_count) #NBA
+			# self.live_error_count, self.future_error_count, self.euro_tag = Create_Euroleague_Schedule(self.Bot, self.conn, self.live_error_count, self.future_error_count) #Euro
+			# self.live_error_count, self.future_error_count, self.Argentina_tag = Create_Argentina_Schedule(self.Bot, self.conn, self.live_error_count, self.future_error_count) #Argentina
+			# self.live_error_count, self.future_error_count, self.sk_tag = Create_SK_Schedule(self.Bot, self.conn, self.live_error_count, self.future_error_count) #Korea
+			# self.live_error_count, self.future_error_count, self.NBA_tag = Create_NBA_Schedule(self.Bot, self.conn, self.live_error_count, self.future_error_count) #NBA
+			Create_Euroleague_Schedule(self.Bot, self.conn) #Euro
+			Create_Argentina_Schedule(self.Bot, self.conn) #Argentina
+			Create_SK_Schedule(self.Bot, self.conn) #Korea
+			Create_NBA_Schedule(self.Bot, self.conn) #NBA
 
-			#Handle Tables
-			live_count = 4 - self.live_error_count
-			future_count = 4 - self.future_error_count
+			# #Handle Tables
+			# live_count = 4 - self.live_error_count
+			# future_count = 4 - self.future_error_count
 
 			#Return
 			return True

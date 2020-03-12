@@ -292,21 +292,40 @@ class Bovada_Games(tk.Frame):
 	def __init__(self,parent,controller):
 		tk.Frame.__init__(self,parent)
 
-		df1 = Sql_to_DF(controller.conn, 'future_euro_games')
-		rows, cols = df1.shape
-		for r in range(rows):
-			for c in range(cols):
-				e = tk.Entry(self)
-				e.insert(0, df1.iloc[r,c])
-				e.grid(row=r, column=c)
+		label=ttk.Label(self,text="Bovada - Games",font=Large_Font)#.grid(row=0, columnspan=2)
+		label.pack(pady=10,padx=10)
 
-		df2 = Sql_to_DF(controller.conn, 'future_argentina_games')
-		rows2, cols2 = df2.shape
-		for r in range(rows2):
-			for c in range(cols2):
-				e2 = tk.Entry(self)
-				e2.insert(0, df2.iloc[r,c])
-				e2.grid(row=r+15, column=c)
+		#Labels
+		cols = ('index','Date', 'Time', 'Quarter', 'Team1', 'Team2', 'Over', 'Over_Bet', 'Under', 'Under_Bet', 'Score1', 'Score2')
+
+		#Create List Box
+		self.listBox = ttk.Treeview(self, columns=cols, show='headings')
+
+		# set column headings
+		for col in cols:
+			self.listBox.heading(col, text=col, anchor=tk.CENTER)    
+		# self.listBox.grid(row=1, columnspan=2)
+		self.listBox.pack()
+
+		#Show Button
+		button = ttk.Button(self,text="Show Games", command=lambda: self.Show_Games(parent, controller))#.grid(row=4, column=0)
+		button.pack()
+
+	def Show_Games(self,parent,controller):
+		df1 = Sql_to_DF(controller.conn, 'euro_games')
+		df2 = Sql_to_DF(controller.conn, 'argentina_games')
+		
+		tmp_dict1 = df1.T.to_dict().values()
+		tmp_dict2 = df2.T.to_dict().values()
+
+		for j in tmp_dict1:
+			self.listBox.insert("", "end", values=(j['index'],j['Date'],j['Time'],j['Quarter'],j['Team1'],j['Team2'],j['Over'],j['Over_Bet'],j['Under'],\
+				j['Under_Bet'],j['Score1'],j['Score2']))
+
+		for j in tmp_dict2:
+			self.listBox.insert("", "end", values=(j['index'],j['Date'],j['Time'],j['Quarter'],j['Team1'],j['Team2'],j['Over'],j['Over_Bet'],j['Under'],\
+				j['Under_Bet'],j['Score1'],j['Score2']))
+			
 
 
 
