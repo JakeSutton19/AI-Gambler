@@ -16,7 +16,7 @@ import tkinter as tk
 from tkinter import ttk
 from ttkthemes import themed_tk
 
-Large_Font=("Verdana",16)
+Large_Font=("Times",20,"bold")
 
 class UI_Controller(themed_tk.ThemedTk, Controller):#inherited tk.Tk
 	def __init__(self, *args,**kwargs):
@@ -40,7 +40,7 @@ class UI_Controller(themed_tk.ThemedTk, Controller):#inherited tk.Tk
 
 		#Frame Selection
 		self.frames={}
-		for F in (Start, Admin, Status_Page, Manual_Setup, Manual_Actions, Bovada, Bovada_Betting, Bovada_Stats):
+		for F in (Start, Admin, Status_Page, Manual_Setup, Bovada, Bovada_Betting, Bovada_Stats):
 			frame = F(container,self)
 			self.frames[F]=frame
 			frame.grid(row=0,column=0,sticky="nsew")
@@ -55,7 +55,7 @@ class UI_Controller(themed_tk.ThemedTk, Controller):#inherited tk.Tk
 		frame.tkraise()
 
 
-	def Bovada_Quickstart(self):
+	def Bovada_Quickstart(self, event=None):
 		try:
 			Info_Message("Starting Bovada setup..")
 			#Setup
@@ -74,19 +74,64 @@ class UI_Controller(themed_tk.ThemedTk, Controller):#inherited tk.Tk
 	def _CreateMenu(self):
 		self._Menubar = tk.Menu(self)
 
-		# Add file menu
+		#Add Tools Menu
+		self._toolsmenu = tk.Menu(self._Menubar, tearoff=0)
+		self._toolsmenu.add_command(label="Status", command= lambda x = Status_Page: self.show_frame(x))
+		self._toolsmenu.add_separator()
+		self._toolsmenu.add_command(label="Manual Setup", command= lambda x = Manual_Setup: self.show_frame(x))
+		self._toolsmenu.add_separator()
+		self._toolsmenu.add_command(label="Kill", command=self.Kill_Bot)
+		self._toolsmenu.add_separator()
+		self._toolsmenu.add_command(label="Restart", command=self.Restart_Bot)
+		self._toolsmenu.add_separator()
+		self._toolsmenu.add_command(label="Shutdown", command=self.QuitApp)
+		self._Menubar.add_cascade(label="Admin", menu=self._toolsmenu) 
+
+		# Add nav menu
 		self._filemenu = tk.Menu(self._Menubar, tearoff=0)
-		self._filemenu.add_command(label="Home", command= lambda x = Start: self.show_frame(x))
-		self._filemenu.add_separator()
-		self._filemenu.add_command(label="Admin", command= lambda x = Admin: self.show_frame(x))
+		self._filemenu.add_command(label="Quickstart", command=self.Bovada_Quickstart)
 		self._filemenu.add_separator()
 		self._filemenu.add_command(label="Bovada", command= lambda x = Bovada: self.show_frame(x))
 		self._filemenu.add_separator()
-		self._filemenu.add_command(label="Exit", command=self.QuitApp)
-		self._Menubar.add_cascade(label="Navigation", menu=self._filemenu)       
+		self._filemenu.add_command(label="Betting", command= lambda x = Bovada_Betting: self.show_frame(x))
+		self._filemenu.add_separator()
+		self._filemenu.add_command(label="Stats", command= lambda x = Bovada_Stats: self.show_frame(x))
+		self._Menubar.add_cascade(label="Navigation", menu=self._filemenu)
 
 		#Configure
 		self.config(menu=self._Menubar)
+
+	#Reset Bot
+	def Kill_Bot(self, event=None):
+		try:
+			#Close Bot
+			if (self.created_bot):
+				self.Bot.Driver.quit()
+				self.created_bot = False
+
+			#Close DB
+			if (self.connected_DB):
+				self.conn.close()
+				self.connected_DB = False
+			Info_Message("Kill successful.")
+			return True 
+		except:
+			Error_Message("Unable to Reset")
+			return False
+
+	#Reset Bot
+	def Restart_Bot(self, event=None):
+		try:
+			#Close Bot
+			if (self.created_bot == False):
+				#Close DB
+				if (self.connected_DB == False):
+					self.Setup_Controller()
+					Info_Message("Restart successful.")
+					return True 
+		except:
+			Error_Message("Unable to Reset")
+			return False
 
 	#Reset Bot
 	def Reset(self):
@@ -136,9 +181,6 @@ class Start(tk.Frame):
 		button2=ttk.Button(self,text="Bovada",command=lambda: controller.show_frame(Bovada))
 		button2.pack()
 
-		button = ttk.Button(self,text="Exit", command=lambda: controller.QuitApp())
-		button.pack()
-
 #
 ############## ADMIN #############
 #
@@ -152,11 +194,9 @@ class Admin(tk.Frame):
 		#Bovada Setup
 		button3=ttk.Button(self,text="Status",command=lambda: controller.show_frame(Status_Page))
 		button2=ttk.Button(self,text="Admin Setup",command=lambda: controller.show_frame(Manual_Setup))
-		button1=ttk.Button(self,text="Admin Actions",command=lambda: controller.show_frame(Manual_Actions))
 		button = ttk.Button(self,text="Back", command=lambda: controller.show_frame(Start))
 
 		button3.pack()
-		button1.pack()
 		button2.pack()
 		button.pack()
 
@@ -190,19 +230,6 @@ class Manual_Setup(tk.Frame):
 		button = ttk.Button(self,text="Back", command=lambda: controller.show_frame(Admin))
 		button.pack()
 
-
-class Manual_Actions(tk.Frame):
-	def __init__(self,parent,controller):
-		tk.Frame.__init__(self,parent)
-		label=tk.Label(self,text="Admin - Actions",font=Large_Font)
-		label.pack(pady=10,padx=10)
-
-		#Bovada Setup
-		button4=ttk.Button(self,text="Reset",command=lambda: controller.Reset())
-		button4.pack()
-
-		button = ttk.Button(self,text="Back", command=lambda: controller.show_frame(Admin))
-		button.pack()
 
 #
 ############## BOVADA #############
