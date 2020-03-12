@@ -77,22 +77,22 @@ class UI_Controller(themed_tk.ThemedTk, Controller):#inherited tk.Tk
 
 		#Add Tools Menu
 		self._toolsmenu = tk.Menu(self._Menubar, tearoff=0)
-		self._toolsmenu.add_command(label="Status", command= lambda x = Status_Page: self.show_frame(x))
-		self._toolsmenu.add_separator()
-		self._toolsmenu.add_command(label="Manual Setup", command= lambda x = Manual_Setup: self.show_frame(x))
-		self._toolsmenu.add_separator()
 		self._toolsmenu.add_command(label="Kill", command=self.Kill_Bot)
 		self._toolsmenu.add_separator()
 		self._toolsmenu.add_command(label="Restart", command=self.Restart_Bot)
+		self._toolsmenu.add_separator()
+		self._toolsmenu.add_command(label="Manual Setup", command= lambda x = Manual_Setup: self.show_frame(x))
 		self._toolsmenu.add_separator()
 		self._toolsmenu.add_command(label="Shutdown", command=self.QuitApp)
 		self._Menubar.add_cascade(label="Commands", menu=self._toolsmenu) 
 
 		# Add nav menu
 		self._filemenu = tk.Menu(self._Menubar, tearoff=0)
-		self._filemenu.add_command(label="Quickstart", command=self.Bovada_Quickstart)
+		self._filemenu.add_command(label="Quick Launch", command=self.Bovada_Quickstart)
 		self._filemenu.add_separator()
 		self._filemenu.add_command(label="Bovada", command= lambda x = Bovada: self.show_frame(x))
+		self._filemenu.add_separator()
+		self._filemenu.add_command(label="Status", command= lambda x = Status_Page: self.show_frame(x))
 		self._filemenu.add_separator()
 		self._filemenu.add_command(label="Betting", command= lambda x = Bovada_Betting: self.show_frame(x))
 		self._filemenu.add_separator()
@@ -123,9 +123,16 @@ class UI_Controller(themed_tk.ThemedTk, Controller):#inherited tk.Tk
 			if (self.created_bot == False):
 				self.Setup_Controller()
 				Info_Message("Restart successful.")
-				return True 
+				return True
+			elif (self.created_bot == None):
+				self.Setup_Controller()
+				Info_Message("Restart successful.")
+				return True
+			else:
+				Info_Message("Already runnning.")
+				return True
 		except:
-			Error_Message("Unable to Reset")
+			Error_Message("Unable to Restart")
 			return False
 
 	#Reset Bot
