@@ -42,7 +42,7 @@ def Scrape_Balance(Bot):
 		#Return
 		return balance_value
 	except:
-		print("[ERROR]: Unable to Scrape_Balance")
+		# print("[ERROR]: Unable to Scrape_Balance")
 		return False
 
 

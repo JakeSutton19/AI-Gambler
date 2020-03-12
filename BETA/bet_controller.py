@@ -66,11 +66,6 @@ class Bet_Controller:
 			self.Controller = Setup_Controller()
 			self.Bot, self.conn, self.euro_tag, self.Argentina_tag, self.sk_tag, self.NBA_tag = self.Controller.Setup_()
 
-			#Get Starting Balance
-			time.sleep(.5)
-			self.money = Scrape_Balance(self.Bot)
-			time.sleep(.5)
-
 			#Identify Live Tags
 			if (self.euro_tag):
 				self.run_euro = True
@@ -85,7 +80,7 @@ class Bet_Controller:
 				self.run_nba = True
 
 			#Return
-			Info_Message("Setup complete.")
+			Info_Message("Setup complete.\n")
 			return True
 		except:
 			Error_Message("Setup failed..")
@@ -99,19 +94,19 @@ class Bet_Controller:
 			df = Sql_to_DF(self.conn, 'live_euro_games')
 			print(df)
 
-		elif (self.run_argen):
+		if (self.run_argen):
 			print("\nLive Games - Argentina: ")
 			print("---------------")
 			df = Sql_to_DF(self.conn, 'live_argentina_games')
 			print(df)
 
-		elif (self.run_sk):
+		if (self.run_sk):
 			print("\nLive Games - South Korea: ")
 			print("---------------")
 			df = Sql_to_DF(self.conn, 'live_sk_games')
 			print(df)
 
-		elif (self.run_nba):
+		if (self.run_nba):
 			print("\nLive Games - NBA: ")
 			print("---------------")
 			df = Sql_to_DF(self.conn, 'live_nba_games')
@@ -121,22 +116,18 @@ class Bet_Controller:
 	def Search_for_Live_Games(self):
 		#Euroleage
 		if (self.run_euro):
-			Info_Message("Starting Euroleage Monitoring..")
 			self.Run_EUR_Monitor()
 
 		#Argentina
 		elif (self.run_argen):
-			Info_Message("Starting Argentina Monitoring..")
 			self.Run_ARG_Monitor()
 
 		#South Korea
 		elif (self.run_sk):
-			Info_Message("Starting SK Monitoring..")
 			self.Run_SK_Monitor()
 
 		#NBA
 		elif (self.run_nba):
-			Info_Message("Starting NBA Monitoring..")
 			self.Run_NBA_Monitor()
 
 		else:
@@ -147,51 +138,34 @@ class Bet_Controller:
 
 
 	def Run_EUR_Monitor(self):
-		#Create the Controller
-		self.eur_controller = Game_Controller(self.Bot, self.conn)
-
-		#Create NBA Monitor
-		self.live_eur_games = self.eur_controller.Create_EUR_Monitor()
-
-		#Return
-		print(len(self.live_eur_games))
+		Info_Message("Starting Euroleage Monitoring..")
 
 
 	def Run_ARG_Monitor(self):
-		#Create the Controller
-		self.arg_controller = Game_Controller(self.Bot, self.conn)
+		Info_Message("Starting Argentina Monitoring..")
 
-		#Create NBA Monitor
-		self.live_arg_games = self.arg_controller.Create_ARG_Monitor()
+		#Live Games
+		print("\nLive Games - Argentina: ")
+		print("---------------")
+		df = Sql_to_DF(self.conn, 'live_argentina_games')
+		print(df)
 
-		#Return
-		print(len(self.live_arg_games))
+		#Go to Game
+		Nav_to_Argentina_Page(self.Bot)
 
-
+		
 	def Run_SK_Monitor(self):
-		#Create the Controller
-		self.sk_controller = Game_Controller(self.Bot, self.conn)
-
-		#Create NBA Monitor
-		self.live_sk_games = self.sk_controller.Create_SK_Monitor()
-
-		#Return
-		print(len(self.live_sk_games))
+		Info_Message("Starting SK Monitoring..")
 
 
 	def Run_NBA_Monitor(self):
-		#Create the Controller
-		self.nba_controller = Game_Controller(self.Bot, self.conn)
+		Info_Message("Starting NBA Monitoring..")
 
-		#Create NBA Monitor
-		self.live_nba_games = self.nba_controller.Create_NBA_Monitor()
-
-		#Return
-		print(len(self.live_nba_games))
 		
 
 
 	def Run(self):
 		self.setup_status = self.Setup_()
-		self.Show_Live_Games()
+		# self.Show_Live_Games()
 		self.Search_for_Live_Games()
+		End_Test(self.Bot)

@@ -106,7 +106,7 @@ def Bovada_Setup_Login(Bot):
 		submit.click()
 
 		#Save Cookies and Return
-		input("Press [Enter] to save cookies.")
+		input("Press [Enter] to continue.")
 		Bot.save_cookies(Bot.Config_Options['COOKIES']['BOVADA_LOGIN_COOKIE'])
 		return True
 

@@ -22,6 +22,7 @@ class Setup_Controller:
 
 		#Bovada
 		self.bovada_login = None
+		self.bovada_login_check = None
 
 		#Navigation
 		self.bovada_basketball_home = None
@@ -59,12 +60,35 @@ class Setup_Controller:
 		self.conn = Bovada_DB(self.db_path)
 
 
+	#Check login status
+	def Check_Bovada_Login(self):
+		try:
+			#Get Starting Balance
+			time.sleep(1.5)
+			money = Scrape_Balance(self.Bot)
+
+			#if balace is false, manual login
+			if (money):
+				Info_Message("Quick login successful.")
+				return True 
+			else:
+				Info_Message("Quick login failed. Running manual setup..")
+				self.bovada_login = Bovada_Setup_Login(self.Bot)
+				return True
+		except:
+			Error_Message("Unable to Check_Bovada_Login")
+			return False
+
+
 	#Setup Bovada home
 	def Setup_Bovada(self):
-		#Login to Bovada
 		try:
+			#Login to Bovada
+			Info_Message("Setting up Bovada.")
 			self.bovada_login = Bovada_Quick_Login(self.Bot) #Login
-			return True 
+
+			#Check for login
+			self.bovada_login_check = self.Check_Bovada_Login()
 		except:
 			Error_Message("Unable to Setup_Bovada")
 			return False
@@ -84,7 +108,7 @@ class Setup_Controller:
 
 	#Create Game Schedules
 	def Make_Schedules(self):
-		Info_Message("Generating schedules...")
+		Info_Message("Generating schedules.")
 		try:
 			self.live_error_count, self.future_error_count, self.euro_tag = Create_Euroleague_Schedule(self.Bot, self.conn, self.live_error_count, self.future_error_count) #Euro
 			self.live_error_count, self.future_error_count, self.Argentina_tag = Create_Argentina_Schedule(self.Bot, self.conn, self.live_error_count, self.future_error_count) #Argentina
@@ -95,8 +119,7 @@ class Setup_Controller:
 			live_count = 4 - self.live_error_count
 			future_count = 4 - self.future_error_count
 
-			#Show Counts
-			Info_Message("Future Schedules: {}, Live Schedules: {}".format(future_count, live_count))
+			#Return
 			return True
 		except:
 			Error_Message("Unable to Make_Schedules")
@@ -104,6 +127,11 @@ class Setup_Controller:
 
 
 	def Setup_(self):
+		#Message
+		print("SETUP LOG")
+		print("---------")
+		Info_Message("Creating Bot.")
+
 		#Start Bot
 		self.Setup_Bot()
 
