@@ -8,15 +8,11 @@ import os
 import curses
 
 #Bovada Imports
-from .Build.__init__ import *
-from .Bovada.__init__ import *
-from .Database.__init__ import *
-from .ui_controller import UI_Controller
-from .setup_bovada_controller import Setup_Bovada_Controller
+from .Bot.__init__ import *
 
 
 class Controller:
-	def __init__(self, curses, stdscr):
+	def __init__(self):
 		#Bot
 		self.Bot = None
 		self.created_bot = None
@@ -36,9 +32,14 @@ class Controller:
 		self.sk_tag = None
 		self.NBA_tag = None
 
+		#Monitor Direction
+		self.run_euro = None
+		self.run_argen = None
+		self.run_sk = None
+		self.run_nba = None
+
 		#Run
 		self.setup_complete = None
-		self.terminal_start()
 		
 	#Setup Bot
 	def Setup_Bot(self):
@@ -78,14 +79,134 @@ class Controller:
 			return False
 
 	#Initialize Games
-	def Create_Games_List(self):
+	def Setup_Live_Games(self):
 		try:
 			self.euro_tag, self.Argentina_tag, self.sk_tag, self.NBA_tag = self.Bovada_Controller.Initialize_Basketball_Games()
+
+			#Identify Live Tags
+			if (self.euro_tag):
+				self.run_euro = True
+
+			if (self.Argentina_tag):
+				self.run_argen = True
+
+			if (self.sk_tag):
+				self.run_sk = True
+
+			if (self.NBA_tag):
+				self.run_nba = True
+
+			#Return to Home BB Page
+			Nav_to_Basketball_Page(self.Bot)
 			return True 
 		except:
-			Error_Message("Unable to Create_Games_List")
+			Error_Message("Unable to Setup_Live_Games")
 			return False
 		
+	
+	def Show_Live_Games(self):
+		#Identify Live Tags
+		if (self.run_euro):
+			print("\nLive Games - Euroleague: ")
+			print("---------------")
+			df = Sql_to_DF(self.conn, 'live_euro_games')
+			print(df)
+
+		if (self.run_argen):
+			print("\nLive Games - Argentina: ")
+			print("---------------")
+			df = Sql_to_DF(self.conn, 'live_argentina_games')
+			print(df)
+
+		if (self.run_sk):
+			print("\nLive Games - South Korea: ")
+			print("---------------")
+			df = Sql_to_DF(self.conn, 'live_sk_games')
+			print(df)
+
+		if (self.run_nba):
+			print("\nLive Games - NBA: ")
+			print("---------------")
+			df = Sql_to_DF(self.conn, 'live_nba_games')
+			print(df)
+
+
+	def Show_Future_Games(self):
+		#Identify Live Tags
+		try:
+			print("Games - Euroleague: ")
+			print("---------------")
+			df = Sql_to_DF(self.conn, 'future_euro_games')
+			print(df)
+		except:
+			pass
+
+		try:
+			print("Games - Argentina: ")
+			print("---------------")
+			df = Sql_to_DF(self.conn, 'future_argentina_games')
+			print(df)
+		except:
+			pass
+
+		try:
+			print("Games - South Korea: ")
+			print("---------------")
+			df = Sql_to_DF(self.conn, 'future_sk_games')
+			print(df)
+		except:
+			pass
+
+		try:
+			print("Games - NBA: ")
+			print("---------------")
+			df = Sql_to_DF(self.conn, 'future_nba_games')
+			print(df)
+		except:
+			pass
 		
 		
+	def Search_for_Live_Games(self):
+		#Euroleage
+		if (self.run_euro):
+			self.Run_EUR_Monitor()
+
+		#Argentina
+		elif (self.run_argen):
+			self.Run_ARG_Monitor()
+
+		#South Korea
+		elif (self.run_sk):
+			self.Run_SK_Monitor()
+
+		#NBA
+		elif (self.run_nba):
+			self.Run_NBA_Monitor()
+
+		else:
+			Info_Message("No live games to monitor.")
+
+
+	def Run_EUR_Monitor(self):
+		Info_Message("Starting Euroleage Monitoring..")
+
+
+	def Run_ARG_Monitor(self):
+		Info_Message("Starting Argentina Monitoring..")
+
+		#Live Games
+		print("\nLive Games - Argentina: ")
+		print("---------------")
+		df = Sql_to_DF(self.conn, 'live_argentina_games')
+		print(df)
+
+		#Go to Game
+		Nav_to_Argentina_Page(self.Bot)
+
 		
+	def Run_SK_Monitor(self):
+		Info_Message("Starting SK Monitoring..")
+
+
+	def Run_NBA_Monitor(self):
+		Info_Message("Starting NBA Monitoring..")

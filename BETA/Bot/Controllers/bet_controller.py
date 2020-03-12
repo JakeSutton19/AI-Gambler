@@ -60,59 +60,6 @@ class Bet_Controller:
 		self.live_nba_games = None
 
 
-	def Setup_(self):
-		try:
-			#Setup 
-			self.Controller = Setup_Controller()
-			self.Bot, self.conn, self.euro_tag, self.Argentina_tag, self.sk_tag, self.NBA_tag = self.Controller.Setup_()
-
-			#Identify Live Tags
-			if (self.euro_tag):
-				self.run_euro = True
-
-			if (self.Argentina_tag):
-				self.run_argen = True
-
-			if (self.sk_tag):
-				self.run_sk = True
-
-			if (self.NBA_tag):
-				self.run_nba = True
-
-			#Return
-			Info_Message("Setup complete.\n")
-			return True
-		except:
-			Error_Message("Setup failed..")
-			return False
-
-	def Show_Live_Games(self):
-		#Identify Live Tags
-		if (self.run_euro):
-			print("\nLive Games - Euroleague: ")
-			print("---------------")
-			df = Sql_to_DF(self.conn, 'live_euro_games')
-			print(df)
-
-		if (self.run_argen):
-			print("\nLive Games - Argentina: ")
-			print("---------------")
-			df = Sql_to_DF(self.conn, 'live_argentina_games')
-			print(df)
-
-		if (self.run_sk):
-			print("\nLive Games - South Korea: ")
-			print("---------------")
-			df = Sql_to_DF(self.conn, 'live_sk_games')
-			print(df)
-
-		if (self.run_nba):
-			print("\nLive Games - NBA: ")
-			print("---------------")
-			df = Sql_to_DF(self.conn, 'live_nba_games')
-			print(df)
-
-
 	def Search_for_Live_Games(self):
 		#Euroleage
 		if (self.run_euro):
@@ -162,10 +109,3 @@ class Bet_Controller:
 		Info_Message("Starting NBA Monitoring..")
 
 		
-
-
-	def Run(self):
-		self.setup_status = self.Setup_()
-		# self.Show_Live_Games()
-		self.Search_for_Live_Games()
-		End_Test(self.Bot)

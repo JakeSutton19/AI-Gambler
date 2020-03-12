@@ -43,7 +43,7 @@ class Setup_Bovada_Controller:
 		self.NBA_tag = None
 
 		#Setup_
-		self.Setup_()
+		self.Setup_Bovada()
 		
 
 	#Check login status
@@ -100,7 +100,6 @@ class Setup_Bovada_Controller:
 
 	#Create Game Schedules
 	def Make_Schedules(self):
-		Info_Message("Generating schedules.")
 		try:
 			self.live_error_count, self.future_error_count, self.euro_tag = Create_Euroleague_Schedule(self.Bot, self.conn, self.live_error_count, self.future_error_count) #Euro
 			self.live_error_count, self.future_error_count, self.Argentina_tag = Create_Argentina_Schedule(self.Bot, self.conn, self.live_error_count, self.future_error_count) #Argentina
