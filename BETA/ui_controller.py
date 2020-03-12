@@ -304,14 +304,16 @@ class Bovada_Games(tk.Frame):
 		# set column headings
 		for col in cols:
 			self.listBox.heading(col, text=col)    
-		self.listBox.grid(row=1, columnspan=1)
-		self.columnconfigure(0, weight=1) # column with treeview
-		self.rowconfigure(1, weight=1) # row with treeview      
+		self.listBox.grid(row=1, columnspan=5)
+		
 		# self.listBox.pack()
 
 		#Show Button
 		button = ttk.Button(self,text="Show Games", command=lambda: self.Show_Games(parent, controller)).grid(row=4, column=0)
 		# button.pack()
+
+		self.columnconfigure(0, weight=1) # column with treeview
+		self.rowconfigure(1, weight=1) # row with treeview      
 
 	def Show_Games(self,parent,controller):
 		df1 = Sql_to_DF(controller.conn, 'euro_games')
