@@ -292,8 +292,8 @@ class Bovada_Games(tk.Frame):
 	def __init__(self,parent,controller):
 		tk.Frame.__init__(self,parent)
 
-		label=ttk.Label(self,text="Bovada - Games",font=Large_Font)#.grid(row=0, columnspan=2)
-		label.pack(pady=10,padx=10)
+		label=ttk.Label(self,text="Bovada - Games",font=Large_Font).grid(row=0, columnspan=2)
+		# label.pack(pady=10,padx=10)
 
 		#Labels
 		cols = ('index','Date', 'Time', 'Quarter', 'Team1', 'Team2', 'Over', 'Over_Bet', 'Under', 'Under_Bet', 'Score1', 'Score2')
@@ -303,13 +303,15 @@ class Bovada_Games(tk.Frame):
 
 		# set column headings
 		for col in cols:
-			self.listBox.heading(col, text=col, anchor=tk.CENTER)    
-		# self.listBox.grid(row=1, columnspan=2)
-		self.listBox.pack()
+			self.listBox.heading(col, text=col)    
+		self.listBox.grid(row=1, columnspan=1)
+		self.columnconfigure(0, weight=1) # column with treeview
+		self.rowconfigure(1, weight=1) # row with treeview      
+		# self.listBox.pack()
 
 		#Show Button
-		button = ttk.Button(self,text="Show Games", command=lambda: self.Show_Games(parent, controller))#.grid(row=4, column=0)
-		button.pack()
+		button = ttk.Button(self,text="Show Games", command=lambda: self.Show_Games(parent, controller)).grid(row=4, column=0)
+		# button.pack()
 
 	def Show_Games(self,parent,controller):
 		df1 = Sql_to_DF(controller.conn, 'euro_games')
