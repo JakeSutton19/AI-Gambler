@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"Set",
+				"Setup_Controller"
+			],
+			[
 				"crea",
 				"create_bot"
 			],
@@ -128,13 +132,37 @@
 	"buffers":
 	[
 		{
-			"file": "/home/human/AI-Gambler/BETA/UI/ui.py",
+			"file": "/home/human/AI-Gambler/BETA/ui_controller.py",
 			"settings":
 			{
-				"buffer_size": 2284,
+				"buffer_size": 5998,
 				"encoding": "UTF-8",
-				"line_ending": "Unix",
-				"name": "ui.py"
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/human/AI-Gambler/BETA/controller.py",
+			"settings":
+			{
+				"buffer_size": 4299,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/human/AI-Gambler/BETA/Bot/actions.py",
+			"settings":
+			{
+				"buffer_size": 5013,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/human/AI-Gambler/run.py",
+			"settings":
+			{
+				"buffer_size": 149,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -172,25 +200,39 @@
 	"expanded_folders":
 	[
 		"/home/human/AI-Gambler",
-		"/home/human/AI-Gambler/BETA"
+		"/home/human/AI-Gambler/BETA",
+		"/home/human/AI-Gambler/BETA/Bot",
+		"/home/human/AI-Gambler/BETA/Bot/Database"
 	],
 	"file_history":
 	[
+		"/home/human/AI-Gambler/BETA/Bot/Database/bovada_data.py",
+		"/home/human/AI-Gambler/BETA/Bot/Database/bovada_webscraper.py",
+		"/home/human/AI-Gambler/BETA/Bot/Database/db.py",
+		"/home/human/AI-Gambler/BETA/Bot/setup_bovada_controller.py",
+		"/home/human/AI-Gambler/test.py",
+		"/home/human/AI-Gambler/BETA/__init__.py",
+		"/home/human/AI-Gambler/run.py",
+		"/home/human/AI-Gambler/BETA/bet_controller.py",
+		"/home/human/AI-Gambler/BETA/Bot/__init__.py",
+		"/home/human/AI-Gambler/BETA/controller.py",
+		"/home/human/AI-Gambler/BETA/ui.py",
+		"/home/human/AI-Gambler/BETA/setup_bovada_controller.py",
+		"/home/human/AI-Gambler/BETA/UI/ui.py",
+		"/home/human/AI-Gambler/BETA/UI/Pages/__init__.py",
+		"/home/human/AI-Gambler/BETA/UI/Pages/Admin.py",
+		"/home/human/AI-Gambler/BETA/UI/Pages/Start.py",
+		"/home/human/AI-Gambler/BETA/UI/Page.py",
 		"/home/human/AI-Gambler/BETA/UI/admin.py",
 		"/home/human/AI-Gambler/BETA/UI/betting.py",
 		"/home/human/AI-Gambler/BETA/UI/start.py",
 		"/home/human/AI-Gambler/BETA/UI/stats.py",
 		"/home/human/AI-Gambler/BETA/UI/test.py",
-		"/home/human/AI-Gambler/BETA/controller.py",
 		"/home/human/AI-Gambler/BETA/Tk/t.py",
 		"/home/human/AI-Gambler/BETA/Tk/Main.py",
-		"/home/human/AI-Gambler/test.py",
 		"/home/human/AI-Gambler/BETA/ui_controller.py",
-		"/home/human/AI-Gambler/BETA/bet_controller.py",
-		"/home/human/AI-Gambler/BETA/setup_bovada_controller.py",
 		"/home/human/AI-Gambler/BETA/game_controller.py",
 		"/home/human/AI-Gambler/BETA/Build/terminal.py",
-		"/home/human/AI-Gambler/BETA/__init__.py",
 		"/home/human/AI-Gambler/BETA/setup_controller.py",
 		"/home/human/AI-Gambler/BETA/Database/db.py",
 		"/home/human/AI-Gambler/BETA/Build/__init__.py",
@@ -226,7 +268,6 @@
 		"/home/human/AI-Gambler/BOVADA/Betting/bovada_data.py",
 		"/home/human/AI-Gambler/BOVADA/Betting/bovada_game_session.py",
 		"/home/human/AI-Gambler/BOVADA/Betting/bovada_betting.py",
-		"/home/human/AI-Gambler/run.py",
 		"/home/human/AI-Gambler/BOVADA/Poker/__init__.py",
 		"/home/human/AI-Gambler/BOVADA/test.py",
 		"/home/human/AI-Gambler/BOVADA/run.py",
@@ -292,18 +333,7 @@
 		"/home/human/AI-Gambler/(Beta)/bot.py",
 		"/home/human/AI-Gambler/Setup/config.ini",
 		"/home/human/AI-Gambler/(Beta)/Bovada/base_bot.py",
-		"/home/human/AI-Gambler/(Beta)/toolkit.py",
-		"/home/human/AI-Gambler/(Beta)/config.ini",
-		"/home/human/AI-Gambler/(Beta)/Bovada/betting_bot.py",
-		"/home/human/AI-Gambler/(Beta)/Bovada/config.ini",
-		"/home/human/AI-Gambler/(Beta)/Bovada/BotKit/config.ini",
-		"/home/human/AI-Gambler/(Beta)/Bovada/BotKit/__init__.py",
-		"/home/human/AI-Gambler/(Beta)/Bovada/BotKit/base_bot.py",
-		"/home/human/AI-Gambler/(Beta)/README.md",
-		"/home/human/AI-Gambler/Alpha/README.md",
-		"/home/human/AI-Gambler/(Beta)/TESTS/Snake/train.py",
-		"/home/human/AI-Gambler/(Beta)/TESTS/Snake/test.py",
-		"/home/human/AI-Gambler/.(Beta)/Bovada/BotKit/__init__.py"
+		"/home/human/AI-Gambler/(Beta)/toolkit.py"
 	],
 	"find":
 	{
@@ -343,38 +373,125 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/home/human/AI-Gambler/BETA/UI/ui.py",
+					"file": "/home/human/AI-Gambler/BETA/ui_controller.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2284,
+						"buffer_size": 5998,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2262,
-								2262
+								5347,
+								5347
 							]
 						],
 						"settings":
 						{
-							"auto_name": "ui.py",
-							"syntax": "Packages/Python/Python.sublime-syntax"
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 195.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
 		},
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 1,
+					"file": "/home/human/AI-Gambler/BETA/controller.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4299,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3458,
+								3458
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1333.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/human/AI-Gambler/BETA/Bot/actions.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5013,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/human/AI-Gambler/run.py",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 149,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -458,7 +575,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
